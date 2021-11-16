@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // res/layout/screen1.xml を初期画面に
+        //res/layout/screen1.xml を初期画面に
         setContentView(R.layout.activity_main);
 
         Button btn = (Button) findViewById(R.id.send_button);
