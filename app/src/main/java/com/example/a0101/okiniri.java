@@ -8,21 +8,19 @@ import android.view.View;
 import android.widget.Button;
 
 public class okiniri extends AppCompatActivity {
-
+    //お気に入り画面
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okiniri);  //activity_homeを遷移先のページの名前に変える(xml)
 
-        Button btn4 = (Button) findViewById(R.id.homebutton1);//return_buttonのところをボタンのid名に変える
+        Button btn = (Button) findViewById(R.id.homebutton1);//return_buttonのところをボタンのid名に変える
 
-        btn4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        btn.setOnClickListener(v-> {
                 Intent intent = new Intent(okiniri.this, //homeを遷移先のページの名前に変える(java)
                         MainActivity.class );
                 startActivity(intent);
                 finish(); // アクティビティ終了
-            }
         });
     }
 }
