@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/homegamen" />
+        app:srcCompat="@drawable/home1" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -50,60 +50,46 @@
     <Button
         android:id="@+id/okini_button"
         android:layout_width="120dp"
-        android:layout_height="85dp"
-        android:layout_marginBottom="305dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="477dp"
+        android:layout_marginBottom="77dp"
         android:background="#00FFFFFF"
         android:text="okiniiri"
         android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.189"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="133dp"
-        android:layout_height="119dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:text="検索機能"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="167dp"
-        android:layout_height="119dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF"
         android:text="プロフィール設定"
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
+        app:layout_constraintVertical_bias="0.269" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="154dp"
-        android:layout_height="92dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF"
         android:text="読み取り"
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/button5"
@@ -115,25 +101,26 @@
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.996" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="87dp"
-        android:layout_height="86dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF"
         android:text="設定"
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/okini_button"
+        app:layout_constraintVertical_bias="0.99" />
 
     <Button
         android:id="@+id/button7"
@@ -145,25 +132,10 @@
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="74dp"
-        android:layout_height="83dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:text="検索"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.992" />
 
     <Button
         android:id="@+id/button9"
@@ -175,9 +147,9 @@
         android:textColor="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.677"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.99" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
