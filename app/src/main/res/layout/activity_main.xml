@@ -20,6 +20,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.629" />
 
+    <!--image buttonに直す際の新規登録ボタンのidはsend_button2にしてください。-->
+    <Button
+        android:id="@+id/send_button2"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:background="#00FFFFFF"
+        android:text="新規登録"
+        android:textColor="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.752" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
