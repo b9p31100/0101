@@ -17,13 +17,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button btn = (Button) findViewById(R.id.send_button);
-
+        Button btn2 =(Button)findViewById(R.id.send_button2);
         btn.setOnClickListener(v ->{
                 Intent intent = new Intent(MainActivity.this,
                         home.class );
                 startActivity(intent);
         });
 
+        btn2.setOnClickListener(v ->{
+            Intent intent = new Intent(MainActivity.this,
+                    userregister.class);
+            startActivity(intent);
+        });
 
     }
 }
