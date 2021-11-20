@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a0101">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.0101">
         <activity
-            android:name=".userregister"
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".singin"
             android:exported="false" />
         <activity
             android:name=".profileset"
