@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         if(user == null){
             Toast.makeText(MainActivity.this, "ログインしてください", Toast.LENGTH_SHORT).show();
+        }else{
+            startActivity(new Intent(MainActivity.this, home.class));
         }
     }
 }

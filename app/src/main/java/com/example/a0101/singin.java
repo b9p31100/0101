@@ -58,7 +58,6 @@ public class singin extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Log.d(TAG, "createUserWithEmail:success");
                         Toast.makeText(singin.this, "Authentication 成功.", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(singin.this, MainActivity.class));
                     }else{

@@ -19,6 +19,7 @@ public class home extends AppCompatActivity {
         //変数はこのファイルだけなので、「btn」と置いても、別のjavaファイルで「btn」でも問題ないです
         Button btn = (Button) findViewById(R.id.return_button);//return_buttonのところをボタンのid名に変える
         Button btn2 =(Button)findViewById(R.id.okini_button);
+        Button btn3 =(Button)findViewById(R.id.button3);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
@@ -30,6 +31,12 @@ public class home extends AppCompatActivity {
         btn2.setOnClickListener(v ->{
             Intent intent = new Intent(home.this, //homeを遷移先のページの名前に変える(java)
                     okiniri.class );
+            //MainActivity(メイン画面に遷移)
+            startActivity(intent);
+        });
+        btn3.setOnClickListener(v ->{
+            Intent intent = new Intent(home.this, //homeを遷移先のページの名前に変える(java)
+                    register.class );
             //MainActivity(メイン画面に遷移)
             startActivity(intent);
         });
