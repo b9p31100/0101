@@ -68,7 +68,6 @@ public class register extends AppCompatActivity {
         checkBox[0] = findViewById(R.id.checkBox);
         checkBox[0].setChecked(false);
         checkBox[0].setText(str[0]);
-
         checkBox[0].setOnClickListener( v -> {
                     // チェックステータス取得
                     boolean check = checkBox[0].isChecked();

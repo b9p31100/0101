@@ -37,14 +37,16 @@ public class singin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance(); //mAuth　インスタンスを初期化
 
         btn.setOnClickListener(v ->{
+            //ログインボタンを押した時の処理
             createuser();
         });
     }
 
     private void createuser() {
+        //メアドとパスワードを取得
         String email = editText.getText().toString();
         String password = editText2.getText().toString();
-
+        //メアドとパスワードが空白でないか確認
         if(TextUtils.isEmpty(email)){
             editText.setError("メールアドレスが未入力です");
             editText.requestFocus();
@@ -54,13 +56,16 @@ public class singin extends AppCompatActivity {
             editText2.requestFocus();
         }
         else{
+            //入力されていたら、Authenticationにメアドとパスワードを追加す処理
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        //taskが成功=追加できた時の処理
                         Toast.makeText(singin.this, "Authentication 成功.", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(singin.this, MainActivity.class));
                     }else{
+                        //追加できなかった時の処理
                         Toast.makeText(singin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
 
