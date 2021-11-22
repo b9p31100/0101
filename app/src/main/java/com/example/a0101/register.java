@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private final CheckBox[] checkBox = new CheckBox[3];
-    private final String[] str = {"卵","乳","小麦","そば","落花生","えび","かに",
+    private final String[] str = {"卵","乳","小麦","そば","落花生","えび","かに","アーモンド",
             "あわび","いか","いくら","オレンジ","カシューナッツ","キウイフルーツ","牛肉","くるみ",
             "ごま","さけ","さば","大豆","鶏肉","バナナ","豚肉","まつたけ","もも","やまいも","りんご","ゼラチン"
     };
