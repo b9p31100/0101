@@ -21,19 +21,6 @@
         app:layout_constraintVertical_bias="0.629" />
 
     <!--image buttonに直す際の新規登録ボタンのidはsend_button2にしてください。-->
-    <Button
-        android:id="@+id/send_button2"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
-        android:background="#00FFFFFF"
-        android:text="新規登録"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -41,12 +28,28 @@
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        android:src="@drawable/topgamen"
+        android:src="@drawable/top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/send_button2"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631"
+        app:srcCompat="@drawable/roguin"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
