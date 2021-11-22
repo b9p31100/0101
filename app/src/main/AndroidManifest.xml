@@ -24,6 +24,9 @@
             android:name=".okiniri"
             android:exported="false" />
         <activity
+            android:name=".register"
+            android:exported="false" />
+        <activity
             android:name=".home"
             android:exported="false" />
         <activity
