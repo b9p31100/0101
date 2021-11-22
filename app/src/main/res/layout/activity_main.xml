@@ -38,10 +38,10 @@
 
     <ImageButton
         android:id="@+id/send_button2"
-        android:layout_width="130dp"
+        android:layout_width="140dp"
         android:layout_height="48dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.631"
-        app:srcCompat="@drawable/roguin"
+        app:srcCompat="@drawable/_12"
         tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
