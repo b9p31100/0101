@@ -2,11 +2,12 @@ package com.example.a0101;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 
 public class register extends AppCompatActivity {
@@ -33,18 +33,15 @@ public class register extends AppCompatActivity {
     };
     private ArrayList<String> array = new ArrayList<>();
     private StringBuilder allergen = new StringBuilder();
+    private String regular = "(?:[-,.、・^\\n]|\\/)";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        TextView textView =findViewById(R.id.textView4);
-        TextView textView2 =findViewById(R.id.textView5);
-        TextView textView3 =findViewById(R.id.textView6);
-        TextView textView4 =findViewById(R.id.textView7);
+        EditText editText =(EditText)findViewById(R.id.EditText);
         Button btn =(Button)findViewById(R.id.button);
-
 
         //宗教のプルダウンリスト作成
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(register.this, android.R.layout.simple_spinner_item);
@@ -113,20 +110,19 @@ public class register extends AppCompatActivity {
 
         btn.setOnClickListener(v ->{
             String allergy ="";
-
             FirebaseUser user = mAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
             //宗教から選択されたテキスト
             String religion = (String) spinner.getSelectedItem();
-            textView.setText(religion);
             //主義から選択されたテキスト
             String principle = (String) spinner2.getSelectedItem();
-            textView2.setText(principle);
+
+            String custom = editText.getText().toString();
+            String ucustom = custom.replaceAll(regular,",");
             //チェックリストのアレルギーを選択したどうかの判定(これが無いとエラーに)
             if (CollectionUtils.isEmpty(array)) {
                 allergy = "なし";
-                textView3.setText(allergy);
             }else {
                 for (int i = 0; i < array.size(); i++) {
                     allergen.append(array.get(i));
@@ -134,17 +130,15 @@ public class register extends AppCompatActivity {
                 }
                 //末尾に付いたカンマ(,)を消す処理
                 allergen.deleteCharAt(allergen.length()-1);
-                textView3.setText(allergen);
                 allergy = allergen.toString();
                 //何度も選択するように、初期化する
                 allergen.setLength(0);
-
             }
-            textView4.setText(uid);
             mDatabase = FirebaseDatabase.getInstance().getReference("user");
-            UserHelper helper = new UserHelper(religion,principle,allergy,uid);
+            UserHelper helper = new UserHelper(religion,principle,ucustom,allergy,uid);
             mDatabase.child(uid).setValue(helper);
-
+            Toast.makeText(register.this, "登録完了", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(register.this, home.class));
 
         });
 

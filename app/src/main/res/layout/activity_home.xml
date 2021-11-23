@@ -13,10 +13,10 @@
         android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/home2" />
 
     <ImageView
@@ -36,13 +36,12 @@
         android:id="@+id/return_button"
         android:layout_width="100dp"
         android:layout_height="0dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginBottom="533dp"
+        android:layout_marginTop="116dp"
         android:background="#00FFFFFF"
         android:text="Back"
         android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

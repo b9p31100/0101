@@ -19,6 +19,7 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);  //activity_homeを遷移先のページの名前に変える(xml)
         //変数はこのファイルだけなので、「btn」と置いても、別のjavaファイルで「btn」でも問題ないです
         Button btn = (Button) findViewById(R.id.return_button);//return_buttonのところをボタンのid名に変える
+        //ImageButton使うときは「ImageButton btn =(ImageButton)findViewById(R.id.)」でやること！
         ImageButton btn2 =(ImageButton) findViewById(R.id.imageButton4);
         Button btn3 =(Button)findViewById(R.id.button3);
         mAuth = FirebaseAuth.getInstance();

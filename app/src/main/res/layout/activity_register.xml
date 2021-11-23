@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="#4EBF53"
         android:text="宗教を選択"
-        android:textColor="#FDFDFD"
+        android:textColor="#455A64"
         android:textStyle="bold" />
 
     <Spinner
@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:background="#528DAA"
         android:backgroundTint="#FD607EB8"
+
         android:text="主義を選択"
         android:textColor="#FAFAFA"
         android:textStyle="bold" />
@@ -46,9 +47,24 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:text="個人的に食べられない食品をカンマ区切りで記入(例:鶏肉,魚)" />
+
+    <EditText
+        android:id="@+id/EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginBottom="20dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FAB367"
-        android:text="アレルギーを登録"
-        android:textColor="#FBFBFB"
+        android:text="アレルギーを選択"
+        android:textColor="#546E7A"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -84,29 +100,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="登録" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
 </LinearLayout>

@@ -26,7 +26,7 @@ public class singin extends AppCompatActivity {
     private  EditText editText;
     private  EditText editText2;
 
-    //ユーザー登録画面
+    //ユーザー登録画面(メアドとパスワード)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +63,7 @@ public class singin extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         //taskが成功=追加できた時の処理
                         Toast.makeText(singin.this, "Authentication 成功.", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(singin.this, MainActivity.class));
+                        startActivity(new Intent(singin.this, register.class));
                     }else{
                         //追加できなかった時の処理
                         Toast.makeText(singin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();

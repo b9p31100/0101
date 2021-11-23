@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         Button btn = (Button) findViewById(R.id.send_button);
-        //ImageButton使うときは「ImageButton btn =(ImageButton)findViewById(R.id.)」でやること！
-        ImageButton btn2 = (ImageButton)findViewById(R.id.send_button2);
+
+        Button btn2 = (Button)findViewById(R.id.send_button2);
         btn.setOnClickListener(v ->{
                 Intent intent = new Intent(MainActivity.this,
                         login.class );
