@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         Button btn = (Button) findViewById(R.id.send_button);
-        Button btn2 =(Button)findViewById(R.id.send_button2);
+        //ImageButton使うときは「ImageButton btn =(ImageButton)findViewById(R.id.)」でやること！
+        ImageButton btn2 = (ImageButton)findViewById(R.id.send_button2);
         btn.setOnClickListener(v ->{
                 Intent intent = new Intent(MainActivity.this,
                         login.class );

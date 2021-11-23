@@ -16,18 +16,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private final CheckBox[] checkBox = new CheckBox[3];
+    //アレルギー(特定原材料の７品目+特定原材料に準ずるもの21品目）
+    //https://www.food-allergy.jp/info/label_1/
     private final String[] str = {"卵","乳","小麦","そば","落花生","えび","かに","アーモンド",
             "あわび","いか","いくら","オレンジ","カシューナッツ","キウイフルーツ","牛肉","くるみ",
             "ごま","さけ","さば","大豆","鶏肉","バナナ","豚肉","まつたけ","もも","やまいも","りんご","ゼラチン"
     };
     private ArrayList<String> array = new ArrayList<>();
     private StringBuilder allergy = new StringBuilder();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class register extends AppCompatActivity {
         adapter.add("モルモン教");
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
+
         //主義(ビーガンなど)のプルダウンリスト作成
         ArrayAdapter<String> adapter2 =new ArrayAdapter<String>(register.this, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -85,8 +87,10 @@ public class register extends AppCompatActivity {
             // チェックステータス取得
             boolean check = checkBox[1].isChecked();
             if (check) {
+                //品目を追加する
                 array.add(str[1]);
             }else{
+                //品目を削除する
                 array.remove(str[1]);
             }
         });
@@ -105,23 +109,28 @@ public class register extends AppCompatActivity {
         });
 
         btn.setOnClickListener(v ->{
+            //宗教から選択されたテキスト
             String select = (String) spinner.getSelectedItem();
             textView.setText(select);
+            //主義から選択されたテキスト
             String select2 = (String) spinner2.getSelectedItem();
             textView2.setText(select2);
+            //チェックリストのアレルギーを選択したどうかの判定(これが無いとエラーに)
             if (CollectionUtils.isEmpty(array)) {
-                String none ="ないよ";
+                String none ="なし";
                 textView3.setText(none);
             }else {
                 for (int i = 0; i < array.size(); i++) {
                     allergy.append(array.get(i));
                     allergy.append(",");
                 }
-                    textView3.setText(allergy);
-                    allergy.setLength(0);
+                //末尾に付いたカンマ(,)を消す処理
+                allergy.deleteCharAt(allergy.length()-1);
+                textView3.setText(allergy);
+                //何度も選択するように、初期化する
+                allergy.setLength(0);
             }
             textView4.setText(uid);
-
         });
 
 
