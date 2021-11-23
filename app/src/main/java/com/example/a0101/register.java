@@ -14,12 +14,16 @@ import android.widget.Toast;
 import com.google.android.gms.common.util.CollectionUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class register extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
     private final CheckBox[] checkBox = new CheckBox[3];
     //アレルギー(特定原材料の７品目+特定原材料に準ずるもの21品目）
     //https://www.food-allergy.jp/info/label_1/
@@ -28,7 +32,7 @@ public class register extends AppCompatActivity {
             "ごま","さけ","さば","大豆","鶏肉","バナナ","豚肉","まつたけ","もも","やまいも","りんご","ゼラチン"
     };
     private ArrayList<String> array = new ArrayList<>();
-    private StringBuilder allergy = new StringBuilder();
+    private StringBuilder allergen = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +44,7 @@ public class register extends AppCompatActivity {
         TextView textView3 =findViewById(R.id.textView6);
         TextView textView4 =findViewById(R.id.textView7);
         Button btn =(Button)findViewById(R.id.button);
-        FirebaseUser user = mAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+
 
         //宗教のプルダウンリスト作成
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(register.this, android.R.layout.simple_spinner_item);
@@ -109,30 +112,43 @@ public class register extends AppCompatActivity {
         });
 
         btn.setOnClickListener(v ->{
+            String allergy ="";
+
+            FirebaseUser user = mAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             //宗教から選択されたテキスト
-            String select = (String) spinner.getSelectedItem();
-            textView.setText(select);
+            String religion = (String) spinner.getSelectedItem();
+            textView.setText(religion);
             //主義から選択されたテキスト
-            String select2 = (String) spinner2.getSelectedItem();
-            textView2.setText(select2);
+            String principle = (String) spinner2.getSelectedItem();
+            textView2.setText(principle);
             //チェックリストのアレルギーを選択したどうかの判定(これが無いとエラーに)
             if (CollectionUtils.isEmpty(array)) {
-                String none ="なし";
-                textView3.setText(none);
+                allergy = "なし";
+                textView3.setText(allergy);
             }else {
                 for (int i = 0; i < array.size(); i++) {
-                    allergy.append(array.get(i));
-                    allergy.append(",");
+                    allergen.append(array.get(i));
+                    allergen.append(",");
                 }
                 //末尾に付いたカンマ(,)を消す処理
-                allergy.deleteCharAt(allergy.length()-1);
-                textView3.setText(allergy);
+                allergen.deleteCharAt(allergen.length()-1);
+                textView3.setText(allergen);
+                allergy = allergen.toString();
                 //何度も選択するように、初期化する
-                allergy.setLength(0);
+                allergen.setLength(0);
+
             }
             textView4.setText(uid);
+            mDatabase = FirebaseDatabase.getInstance().getReference("user");
+            UserHelper helper = new UserHelper(religion,principle,allergy,uid);
+            mDatabase.child(uid).setValue(helper);
+
+
         });
 
 
     }
+
 }
