@@ -22,6 +22,7 @@ public class home extends AppCompatActivity {
         //ImageButton使うときは「ImageButton btn =(ImageButton)findViewById(R.id.)」でやること！
         ImageButton btn2 =(ImageButton) findViewById(R.id.imageButton4);
         Button btn3 =(Button)findViewById(R.id.button3);
+        Button btn4 =(Button)findViewById(R.id.button4);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
@@ -40,6 +41,9 @@ public class home extends AppCompatActivity {
             startActivity(new Intent(home.this, //homeを遷移先のページの名前に変える(java)
                     register.class) );
             //ユーザー登録に遷移
+        });
+        btn4.setOnClickListener(v ->{
+          startActivity(new Intent(home.this, post.class));
         });
     }
 }
