@@ -1,8 +1,5 @@
 package com.example.a0101;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,12 +9,12 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -28,6 +25,7 @@ public class post extends AppCompatActivity {
     private ImageView imageView;
     private Uri cameraUri;
     private Button camera,ocr;
+    private OKHttpTask task;
     Bitmap bitmap;
 
 
@@ -45,7 +43,12 @@ public class post extends AppCompatActivity {
                 cameraIntent();
             }
         });
+        ocr.setOnClickListener(v ->{
+            task =new OKHttpTask();
+            task.execute((Runnable) cameraUri);
+        });
     }
+
     private void cameraIntent(){
         Context context = getApplicationContext();
         // 保存先のフォルダー
@@ -87,7 +90,6 @@ public class post extends AppCompatActivity {
             }
         }
     }
-
     //外部ストレージが読み書き可能かどうかの確認
     public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
@@ -100,4 +102,6 @@ public class post extends AppCompatActivity {
         return (Environment.MEDIA_MOUNTED.equals(state) ||
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
     }
+
+
 }
