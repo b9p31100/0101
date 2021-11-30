@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class register extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private final CheckBox[] checkBox = new CheckBox[3];
+    private final CheckBox[] checkBox = new CheckBox[21];
     //アレルギー(特定原材料の７品目+特定原材料に準ずるもの21品目）
     //https://www.food-allergy.jp/info/label_1/
     private final String[] str = {"卵","乳","小麦","そば","落花生","えび","かに","アーモンド",
@@ -107,6 +107,242 @@ public class register extends AppCompatActivity {
                 array.remove(str[2]);
             }
         });
+
+        checkBox[3] = findViewById(R.id.checkBox4);
+        checkBox[3].setChecked(false);
+        checkBox[3].setText(str[3]);
+        checkBox[3].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[3].isChecked();
+            if (check) {
+                array.add(str[3]);
+            }else{
+                array.remove(str[3]);
+            }
+        });
+
+        checkBox[4] = findViewById(R.id.checkBox5);
+        checkBox[4].setChecked(false);
+        checkBox[4].setText(str[4]);
+        checkBox[4].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[4].isChecked();
+            if (check) {
+                array.add(str[4]);
+            }else{
+                array.remove(str[4]);
+            }
+        });
+
+        checkBox[5] = findViewById(R.id.checkBox6);
+        checkBox[5].setChecked(false);
+        checkBox[5].setText(str[5]);
+        checkBox[5].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[5].isChecked();
+            if (check) {
+                array.add(str[5]);
+            }else{
+                array.remove(str[5]);
+            }
+        });
+
+        checkBox[6] = findViewById(R.id.checkBox7);
+        checkBox[6].setChecked(false);
+        checkBox[6].setText(str[6]);
+        checkBox[6].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[6].isChecked();
+            if (check) {
+                array.add(str[6]);
+            }else{
+                array.remove(str[6]);
+            }
+        });
+
+        checkBox[7] = findViewById(R.id.checkBox8);
+        checkBox[7].setChecked(false);
+        checkBox[7].setText(str[7]);
+        checkBox[7].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[7].isChecked();
+            if (check) {
+                array.add(str[7]);
+            }else{
+                array.remove(str[7]);
+            }
+        });
+        checkBox[8] = findViewById(R.id.checkBox9);
+        checkBox[8].setChecked(false);
+        checkBox[8].setText(str[8]);
+        checkBox[8].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[8].isChecked();
+            if (check) {
+                array.add(str[8]);
+            }else{
+                array.remove(str[8]);
+            }
+        });
+
+        checkBox[9] = findViewById(R.id.checkBox10);
+        checkBox[9].setChecked(false);
+        checkBox[9].setText(str[9]);
+        checkBox[9].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[9].isChecked();
+            if (check) {
+                array.add(str[9]);
+            }else{
+                array.remove(str[9]);
+            }
+        });
+
+        checkBox[10] = findViewById(R.id.checkBox11);
+        checkBox[10].setChecked(false);
+        checkBox[10].setText(str[10]);
+        checkBox[10].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[10].isChecked();
+            if (check) {
+                array.add(str[10]);
+            }else{
+                array.remove(str[10]);
+            }
+        });
+
+        checkBox[11] = findViewById(R.id.checkBox12);
+        checkBox[11].setChecked(false);
+        checkBox[11].setText(str[11]);
+        checkBox[11].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[11].isChecked();
+            if (check) {
+                array.add(str[11]);
+            }else{
+                array.remove(str[11]);
+            }
+        });
+
+        checkBox[12] = findViewById(R.id.checkBox13);
+        checkBox[12].setChecked(false);
+        checkBox[12].setText(str[12]);
+        checkBox[12].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[13].isChecked();
+            if (check) {
+                array.add(str[13]);
+            }else{
+                array.remove(str[13]);
+            }
+        });
+
+        checkBox[13] = findViewById(R.id.checkBox14);
+        checkBox[13].setChecked(false);
+        checkBox[13].setText(str[13]);
+        checkBox[13].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[13].isChecked();
+            if (check) {
+                array.add(str[13]);
+            }else{
+                array.remove(str[13]);
+            }
+        });
+
+        checkBox[14] = findViewById(R.id.checkBox15);
+        checkBox[14].setChecked(false);
+        checkBox[14].setText(str[14]);
+        checkBox[14].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[14].isChecked();
+            if (check) {
+                array.add(str[14]);
+            }else{
+                array.remove(str[14]);
+            }
+        });
+
+        checkBox[15] = findViewById(R.id.checkBox16);
+        checkBox[15].setChecked(false);
+        checkBox[15].setText(str[15]);
+        checkBox[15].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[15].isChecked();
+            if (check) {
+                array.add(str[15]);
+            }else{
+                array.remove(str[15]);
+            }
+        });
+
+        checkBox[16] = findViewById(R.id.checkBox17);
+        checkBox[16].setChecked(false);
+        checkBox[16].setText(str[16]);
+        checkBox[16].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[16].isChecked();
+            if (check) {
+                array.add(str[16]);
+            }else{
+                array.remove(str[16]);
+            }
+        });
+
+        checkBox[17] = findViewById(R.id.checkBox18);
+        checkBox[17].setChecked(false);
+        checkBox[17].setText(str[17]);
+        checkBox[17].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[17].isChecked();
+            if (check) {
+                array.add(str[17]);
+            }else{
+                array.remove(str[17]);
+            }
+        });
+
+        checkBox[18] = findViewById(R.id.checkBox19);
+        checkBox[18].setChecked(false);
+        checkBox[18].setText(str[18]);
+        checkBox[18].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[18].isChecked();
+            if (check) {
+                array.add(str[18]);
+            }else{
+                array.remove(str[18]);
+            }
+        });
+
+        checkBox[19] = findViewById(R.id.checkBox20);
+        checkBox[19].setChecked(false);
+        checkBox[19].setText(str[19]);
+        checkBox[19].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[19].isChecked();
+            if (check) {
+                array.add(str[19]);
+            }else{
+                array.remove(str[19]);
+            }
+        });
+
+        checkBox[20] = findViewById(R.id.checkBox21);
+        checkBox[20].setChecked(false);
+        checkBox[20].setText(str[20]);
+        checkBox[20].setOnClickListener( v -> {
+            // チェックステータス取得
+            boolean check = checkBox[20].isChecked();
+            if (check) {
+                array.add(str[20]);
+            }else{
+                array.remove(str[20]);
+            }
+        });
+
+
+
 
         btn.setOnClickListener(v ->{
             String allergy ="";
