@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -24,7 +25,7 @@ public class post extends AppCompatActivity {
     private final static int RESULT_CAMERA = 1001;
     private ImageView imageView;
     private Uri cameraUri;
-    private Button camera,ocr;
+    private Button camera,ocr,textpos;
     private OKHttpTask task;
     Bitmap bitmap;
 
@@ -36,6 +37,7 @@ public class post extends AppCompatActivity {
 
         camera=findViewById(R.id.camera_button);
         ocr=findViewById(R.id.post_button);
+        textpos=findViewById(R.id.button2);
         imageView = findViewById(R.id.image_view);
 
         camera.setOnClickListener(v ->{
@@ -43,10 +45,19 @@ public class post extends AppCompatActivity {
                 cameraIntent();
             }
         });
-        ocr.setOnClickListener(v ->{
-            task =new OKHttpTask();
-            task.execute((Runnable) cameraUri);
+
+        ocr.setOnClickListener(v -> {
+            if (cameraUri != null) {
+                task = new OKHttpTask();
+                task.execute((Runnable) cameraUri);
+             }else{
+                Toast.makeText(post.this,"写真を撮影してください",Toast.LENGTH_SHORT).show();
+            }
         });
+        textpos.setOnClickListener(v ->{
+            startActivity(new Intent(post.this,textpos.class));
+        });
+
     }
 
     private void cameraIntent(){
@@ -81,7 +92,6 @@ public class post extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if (requestCode == RESULT_CAMERA) {
-
             if(cameraUri != null && isExternalStorageReadable()){
                 imageView.setImageURI(cameraUri);
             }
