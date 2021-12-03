@@ -6,31 +6,126 @@
     android:layout_height="match_parent"
     tools:context=".hanteikextuka">
 
+
+    <Button
+        android:id="@+id/return_button"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="52dp"
+        android:background="#00FFFFFF"
+        android:text="Back"
+        android:textColor="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="301dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="68dp"
+        android:background="@color/white"
+        android:text="あなたはこの商品を"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/__25_" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/__1" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="642dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.986"
+        app:srcCompat="@drawable/ie"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="644dp"
+        android:layout_marginEnd="224dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986"
+        app:srcCompat="@drawable/__1_"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="96dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="642dp"
+        android:layout_marginEnd="112dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.986"
+        app:srcCompat="@drawable/_7"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="93dp"
+        android:layout_height="82dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="309dp"
+        android:layout_marginTop="640dp"
+        android:layout_marginEnd="4dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/_2"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="7dp"
-        android:layout_height="108dp"
-        android:layout_marginStart="339dp"
-        android:layout_marginTop="480dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="143dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="SpeakableTextPresentCheck">
+        android:layout_width="406dp"
+        android:layout_height="193dp"
+        android:layout_marginTop="441dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,110 +133,18 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/return_button"
-        android:layout_width="100dp"
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="80dp"
         android:layout_height="50dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="63dp"
         android:background="#00FFFFFF"
-        android:text="Back"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="76dp"
-        android:layout_height="90dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:text="ホーム"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.996" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="75dp"
-        android:layout_height="87dp"
-        android:layout_marginBottom="6dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:text="設定"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="78dp"
-        android:layout_height="84dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:text="マイプロフィール"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="89dp"
-        android:layout_height="83dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        android:text="カメラ"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="201dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="147dp"
-        android:layout_marginEnd="107dp"
-        android:background="@color/white"
-        android:text="商品名"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="301dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="67dp"
-        android:background="@color/white"
-        android:text="あなたはこの商品を"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:srcCompat="@drawable/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
