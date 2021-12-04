@@ -3,7 +3,7 @@ package com.example.a0101;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,19 +14,24 @@ import com.google.gson.JsonParser;
 
 import java.io.InputStream;
 
+
+
 public class textpos extends AppCompatActivity {
     private HttpAccess httpAccess;
     private AssetManager assetManager;
     private ErrorText errorText;
 
 
-    @Override
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_textpos);
+        Button btn =(Button)findViewById(R.id.button);
+
         httpAccess = new HttpAccess("");
         assetManager = textpos.this.getResources().getAssets();
-// PHP のエラーメッセージのテキストを定義した JSON 文字列の取得
+        // PHP のエラーメッセージのテキストを定義した JSON 文字列の取得
         try {
             InputStream inputStream = assetManager.open("error.json");
             String json = HttpAccess.readTextAll(inputStream,"UTF-8");
@@ -36,21 +41,18 @@ public class textpos extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        textpos.this.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+        btn.setOnClickListener(v ->{
                 try {
                     InputStream inputStream = assetManager.open("image.png");
                     httpAccess.sendUpload(
-// URL ( 必ず指定 )
+                            // URL ( 必ず指定 )
                             "https://athena.abe-lab.jp/~b9p31081/zemi2021/post/file_upload.php",
-// フィールド名
+                            // フィールド名
                             "target",
-// ファイル名
+                            // ファイル名
                             "image.png",
                             inputStream,
-// MIME
+                            // MIME
                             "image/png",
                             new HttpAccess.OnAsyncTaskListener() {
                                 @Override
@@ -68,18 +70,15 @@ public class textpos extends AppCompatActivity {
                                     Log.i("lightbox", s);
                                     Log.i("lightbox", result);
                                     Log.i("lightbox", ErrorText);
-
-
                                 }
                             }
                     );
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
         });
-
     }
+
 
     // *************************************
 // assets フォルダの error.json 用
@@ -87,4 +86,5 @@ public class textpos extends AppCompatActivity {
     private class ErrorText {
         String[] error;
     }
-}
+
+    }
