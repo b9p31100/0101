@@ -26,7 +26,6 @@ public class post extends AppCompatActivity {
     private ImageView imageView;
     private Uri cameraUri;
     private Button camera,ocr,textpos;
-    private OKHttpTask task;
     Bitmap bitmap;
 
 
@@ -47,12 +46,7 @@ public class post extends AppCompatActivity {
         });
 
         ocr.setOnClickListener(v -> {
-            if (cameraUri != null) {
-                task = new OKHttpTask();
-                task.execute((Runnable) cameraUri);
-             }else{
                 Toast.makeText(post.this,"写真を撮影してください",Toast.LENGTH_SHORT).show();
-            }
         });
         textpos.setOnClickListener(v ->{
             startActivity(new Intent(post.this,textpos.class));
