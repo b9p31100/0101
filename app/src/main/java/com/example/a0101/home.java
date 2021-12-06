@@ -43,7 +43,7 @@ public class home extends AppCompatActivity {
             //ユーザー登録に遷移
         });
         btn4.setOnClickListener(v ->{
-          startActivity(new Intent(home.this, post.class));
+        //  startActivity(new Intent(home.this, post.class));
         });
     }
 }
