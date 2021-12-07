@@ -48,9 +48,6 @@ public class post extends AppCompatActivity {
         ocr.setOnClickListener(v -> {
                 Toast.makeText(post.this,"写真を撮影してください",Toast.LENGTH_SHORT).show();
         });
-        textpos.setOnClickListener(v ->{
-            startActivity(new Intent(post.this,textpos.class));
-        });
 
     }
 
