@@ -1,12 +1,11 @@
 package com.example.a0101;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -14,11 +13,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //ログイン画面　
-    //MainActivityはhomeではないので注意(自分(増田)への戒めなので、デザイン班はスルーしてください)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //res/layout/screen1.xml を初期画面に
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         Button btn = (Button) findViewById(R.id.send_button);
@@ -45,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "ログインしてください", Toast.LENGTH_SHORT).show();
         }else{
             startActivity(new Intent(MainActivity.this, home.class));
+            finish();
         }
     }
 }
