@@ -2,7 +2,7 @@ package com.example.a0101;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,7 +15,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -25,8 +32,12 @@ public class post extends AppCompatActivity {
     private final static int RESULT_CAMERA = 1001;
     private ImageView imageView;
     private Uri cameraUri;
-    private Button camera,ocr,textpos;
-    Bitmap bitmap;
+    private Button camera,ocr;
+    private HttpAccess httpAccess;
+    private AssetManager assetManager;
+    private ErrorText errorText;
+    private String file,fileName;
+    private InputStream image;
 
 
     @Override
@@ -36,9 +47,19 @@ public class post extends AppCompatActivity {
 
         camera=findViewById(R.id.camera_button);
         ocr=findViewById(R.id.post_button);
-        textpos=findViewById(R.id.button2);
         imageView = findViewById(R.id.image_view);
 
+        httpAccess = new HttpAccess("");
+        assetManager = post.this.getResources().getAssets();
+        // PHP のエラーメッセージのテキストを定義した JSON 文字列の取得
+        try {
+            InputStream inputStream = assetManager.open("error.json");
+            String json = HttpAccess.readTextAll(inputStream,"UTF-8");
+            Gson gson = new Gson();
+            errorText = gson.fromJson(json, ErrorText.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         camera.setOnClickListener(v ->{
             if(isExternalStorageWritable()){
                 cameraIntent();
@@ -46,9 +67,49 @@ public class post extends AppCompatActivity {
         });
 
         ocr.setOnClickListener(v -> {
+            if(cameraUri == null){
                 Toast.makeText(post.this,"写真を撮影してください",Toast.LENGTH_SHORT).show();
-        });
+            }else{
+                try {
+                    image =getContentResolver().openInputStream(cameraUri);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    httpAccess.sendUpload(
+                            // URL ( 必ず指定 )
+                            "https://athena.abe-lab.jp/~b9p31081/zemi2021/post/file_upload.php",
+                            // フィールド名
+                            "target",
+                            // ファイル名
+                            fileName,
+                            image,
+                            // MIME
+                            "image/jpeg",
+                            new HttpAccess.OnAsyncTaskListener() {
+                                @Override
+                                public void onAsyncTaskListener(String s) {
 
+                                    JsonParser parser = new JsonParser();
+                                    JsonElement element = parser.parse(s);
+                                    JsonObject root = element.getAsJsonObject();
+                                    String result = root.get("result").getAsString();
+                                    JsonObject files = root.get("files").getAsJsonObject();
+                                    JsonObject target = files.get("target").getAsJsonObject();
+                                    int error = target.get("error").getAsInt();
+
+                                    String ErrorText = errorText.error[error];
+                                    Log.i("lightbox", s);
+                                    Log.i("lightbox", result);
+                                    Log.i("lightbox", ErrorText);
+                                }
+                            }
+                    );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void cameraIntent(){
@@ -60,21 +121,20 @@ public class post extends AppCompatActivity {
         String fileDate = new SimpleDateFormat(
                 "ddHHmmss", Locale.US).format(new Date());
         // ファイル名
-        String fileName = String.format("CameraIntent_%s.jpg", fileDate);
+        fileName = String.format("Camera_%s.jpg", fileDate);
+        Log.d("log",fileName);
 
         File cameraFile = new File(cFolder, fileName);
 
         cameraUri = FileProvider.getUriForFile(
                 post.this,
-                context.getPackageName() + ".fileprovider",
-                cameraFile);
+                context.getPackageName() + ".fileprovider",cameraFile);
+        file =new File(cameraUri.getPath()).getName();
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, cameraUri);
         //noinspection deprecation
         startActivityForResult(intent, RESULT_CAMERA);
-
-        Log.d("debug","startActivityForResult()");
     }
     @Override
 
@@ -103,6 +163,7 @@ public class post extends AppCompatActivity {
         return (Environment.MEDIA_MOUNTED.equals(state) ||
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state));
     }
-
-
+    private class ErrorText {
+        String[] error;
+    }
 }
