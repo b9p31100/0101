@@ -25,7 +25,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 
 public class post extends AppCompatActivity {
@@ -102,6 +101,10 @@ public class post extends AppCompatActivity {
                                     Log.i("lightbox", s);
                                     Log.i("lightbox", result);
                                     Log.i("lightbox", ErrorText);
+                                    if(result == "ocrが実行されませんでした"){
+                                        Toast.makeText(post.this,"読み取れませんでした。もう一度取り直してください。",Toast.LENGTH_SHORT).show();
+                                    }
+                                    Log.d("ocr",result);
                                 }
                             }
                     );
@@ -114,18 +117,16 @@ public class post extends AppCompatActivity {
 
     private void cameraIntent(){
         Context context = getApplicationContext();
-        // 保存先のフォルダー
+        //保存先のフォルダー
         File cFolder = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
-        Log.d("log","path: " + String.valueOf(cFolder));
-
-        String fileDate = new SimpleDateFormat(
-                "ddHHmmss", Locale.US).format(new Date());
+        SimpleDateFormat dataFormat =new SimpleDateFormat("yyyyMMddHHmmss");
+        Date now =new Date(System.currentTimeMillis());
+        String fileDate = dataFormat.format(now);
         // ファイル名
-        fileName = String.format("Camera_%s.jpg", fileDate);
+        fileName = "Camara_"+fileDate+".jpg";
         Log.d("log",fileName);
 
         File cameraFile = new File(cFolder, fileName);
-
         cameraUri = FileProvider.getUriForFile(
                 post.this,
                 context.getPackageName() + ".fileprovider",cameraFile);
