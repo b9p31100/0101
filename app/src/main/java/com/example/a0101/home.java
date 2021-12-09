@@ -19,9 +19,9 @@ public class home extends AppCompatActivity {
         //変数はこのファイルだけなので、「btn」と置いても、別のjavaファイルで「btn」でも問題ないです
         Button btn = (Button) findViewById(R.id.return_button);//return_buttonのところをボタンのid名に変える
         //ImageButton使うときは「ImageButton btn =(ImageButton)findViewById(R.id.)」でやること！
-        ImageButton btn2 =(ImageButton) findViewById(R.id.imageButton4);
-        Button btn3 =(Button)findViewById(R.id.button3);
-        Button btn4 =(Button)findViewById(R.id.button4);
+        Button btn2 =(Button) findViewById(R.id.button_okini);
+        Button btn3 =(Button)findViewById(R.id.button_puro);
+        Button btn4 =(Button)findViewById(R.id.button_bako);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
