@@ -18,10 +18,9 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);  //activity_homeを遷移先のページの名前に変える(xml)
         //変数はこのファイルだけなので、「btn」と置いても、別のjavaファイルで「btn」でも問題ないです
         Button btn = (Button) findViewById(R.id.return_button);//return_buttonのところをボタンのid名に変える
-        //ImageButton使うときは「ImageButton btn =(ImageButton)findViewById(R.id.)」でやること！
         Button btn2 =(Button) findViewById(R.id.button_okini);
         Button btn3 =(Button)findViewById(R.id.button_puro);
-        Button btn4 =(Button)findViewById(R.id.button_bako);
+        Button btn4 =(Button)findViewById(R.id.button_ocr);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
@@ -41,6 +40,7 @@ public class home extends AppCompatActivity {
                     register.class) );
             //ユーザー登録に遷移
         });
+        //OCRに遷移
         btn4.setOnClickListener(v ->{
             startActivity(new Intent(home.this, post.class));
         });
