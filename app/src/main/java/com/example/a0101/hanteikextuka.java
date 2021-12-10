@@ -16,12 +16,9 @@ public class hanteikextuka extends AppCompatActivity {
             setContentView(R.layout.activity_main);
 
             ImageView imageView = (ImageView) findViewById(R.id.imageView14);
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Animation animation = AnimationUtils.loadAnimation(hanteikextuka.this, R.anim.btn_action);
-                    view.startAnimation(animation);
-                }
+            imageView.setOnClickListener(view -> {
+                Animation animation = AnimationUtils.loadAnimation(hanteikextuka.this, R.anim.btn_action);
+                view.startAnimation(animation);
             });
         }
     }
