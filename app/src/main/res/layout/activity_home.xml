@@ -2,22 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/home2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/home2" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -47,18 +36,6 @@
         app:layout_constraintVertical_bias="0.269"
         tools:ignore="DuplicateClickableBoundsCheck" />
 
-    <Button
-        android:id="@+id/return_button"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="52dp"
-        android:background="#00FFFFFF"
-        android:text="Back"
-        android:textColor="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
@@ -78,69 +55,61 @@
         tools:ignore="DuplicateClickableBoundsCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="16dp"
-
-        android:layout_marginTop="644dp"
+        android:id="@+id/imageButton"
+        android:layout_width="87dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageButton2"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ie"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ie" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="644dp"
+        android:id="@+id/imageButton2"
+        android:layout_width="104dp"
+        android:layout_height="94dp"
+        android:layout_weight="1"
         android:background="#00FFFFFF"
-
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageButton3"
+        app:layout_constraintStart_toEndOf="@id/imageButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/__1_"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/__1_" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="644dp"
+        android:id="@+id/imageButton3"
+        android:layout_width="97dp"
+        android:layout_height="96dp"
+        android:layout_weight="1"
         android:background="#00FFFFFF"
-
-
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.668"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageButton4"
+        app:layout_constraintStart_toEndOf="@id/imageButton2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/_7"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/_7" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="4dp"
-
-
-        android:layout_marginTop="12dp"
+        android:id="@+id/imageButton4"
+        android:layout_width="108dp"
+        android:layout_height="89dp"
+        android:layout_weight="1"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/button_bako"
+        app:layout_constraintStart_toEndOf="@id/imageButton3"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/_2"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:srcCompat="@drawable/_2" />
 
     <Button
         android:id="@+id/button_puro"

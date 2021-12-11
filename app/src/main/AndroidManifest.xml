@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a0101">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.a0101" >
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -17,16 +20,13 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.0101">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
+        android:theme="@style/Theme.0101" >
 
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_path" />
@@ -38,6 +38,9 @@
             android:usesCleartextTraffic="true" />
         <activity
             android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".qcrkeka"
             android:exported="false" />
         <activity
             android:name=".singin"
@@ -56,7 +59,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

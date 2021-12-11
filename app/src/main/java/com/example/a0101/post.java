@@ -37,6 +37,7 @@ public class post extends AppCompatActivity {
     private ErrorText errorText;
     private String file,fileName;
     private InputStream image;
+    private String regular = "(?:[-^＾~～？:：；;!\\<>＜＞「」｛｝#＃\\\"”a-zA-Z\\[\\]|=＝$%％\\t\\n\\x0B\\f\\r*n]|\\\\/)";
 
 
     @Override
@@ -64,6 +65,7 @@ public class post extends AppCompatActivity {
                 cameraIntent();
             }
         });
+
 
         ocr.setOnClickListener(v -> {
             if(cameraUri == null){
@@ -96,15 +98,20 @@ public class post extends AppCompatActivity {
                                     JsonObject files = root.get("files").getAsJsonObject();
                                     JsonObject target = files.get("target").getAsJsonObject();
                                     int error = target.get("error").getAsInt();
-
                                     String ErrorText = errorText.error[error];
                                     Log.i("lightbox", s);
                                     Log.i("lightbox", result);
                                     Log.i("lightbox", ErrorText);
-                                    if(result == "ocrが実行されませんでした"){
+                                    if(result.equals("ocrが実行されませんでした")){
                                         Toast.makeText(post.this,"読み取れませんでした。もう一度取り直してください。",Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        String ocrre =result.replaceAll(regular,"");
+                                        Intent intent = new Intent(getApplication(), qcrkeka.class);
+                                        intent.putExtra("data", ocrre);
+                                        startActivity(intent);
+
                                     }
-                                    Log.d("ocr",result);
+
                                 }
                             }
                     );
