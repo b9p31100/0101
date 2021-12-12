@@ -45,6 +45,7 @@ public class post extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
+
         camera=findViewById(R.id.camera_button);
         ocr=findViewById(R.id.post_button);
         imageView = findViewById(R.id.image_view);
@@ -60,12 +61,12 @@ public class post extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        camera.setOnClickListener(v ->{
-            if(isExternalStorageWritable()){
+
+        camera.setOnClickListener(v -> {
+            if (isExternalStorageWritable()) {
                 cameraIntent();
             }
         });
-
 
         ocr.setOnClickListener(v -> {
             if(cameraUri == null){
@@ -105,7 +106,7 @@ public class post extends AppCompatActivity {
                                     if(result.equals("ocrが実行されませんでした")){
                                         Toast.makeText(post.this,"読み取れませんでした。もう一度取り直してください。",Toast.LENGTH_SHORT).show();
                                     }else{
-                                        String ocrre =result.replaceAll(regular,"");
+                                        String ocrre =result.replaceAll(regular,"").replaceAll("　", "").replaceAll(" ", "");
                                         Intent intent = new Intent(getApplication(), qcrkeka.class);
                                         intent.putExtra("data", ocrre);
                                         startActivity(intent);
@@ -153,6 +154,7 @@ public class post extends AppCompatActivity {
         if (requestCode == RESULT_CAMERA) {
             if(cameraUri != null && isExternalStorageReadable()){
                 imageView.setImageURI(cameraUri);
+
             }
             else{
                 Log.d("debug","cameraUri == null");

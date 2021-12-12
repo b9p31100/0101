@@ -123,12 +123,12 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="50dp"
+        android:layout_marginTop="28dp"
         android:layout_marginBottom="63dp"
         android:background="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
