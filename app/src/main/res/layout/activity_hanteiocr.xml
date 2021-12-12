@@ -5,8 +5,7 @@
     android:background="@drawable/purofilsetting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".qcrkeka">
-
+    tools:context=".hanteiocr">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,32 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/title" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="345dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="24dp"
-        android:text="不適切な文字があった時は削除してください"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/Edittext"
-        android:layout_width="387dp"
-        android:layout_height="322dp"
-        android:layout_marginTop="24dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/imagebutton1"
@@ -70,8 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00F3F3F3"
-        android:text="OCR 読み取り結果"
-        android:textColor="#000"
+        android:text="判定結果"
+        android:textColor="@color/design_default_color_on_secondary"
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,21 +52,18 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintVertical_bias="0.172" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="88dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="112dp"
-        android:text="判定する"
-        android:textSize="12sp"
-        app:backgroundTint="#5aae6b"
-        app:layout_constraintStart_toStartOf="parent"
+    <View
+        android:id="@+id/view"
+        android:layout_width="334dp"
+        android:layout_height="238dp"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/border"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

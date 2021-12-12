@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.a0101">
+
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,9 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.0101">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/actions" />
+        <activity
+            android:name=".hanteiocr"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -38,6 +41,9 @@
             android:usesCleartextTraffic="true" />
         <activity
             android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".qcrkeka"
             android:exported="false" />
         <activity
             android:name=".singin"

@@ -37,12 +37,14 @@ public class post extends AppCompatActivity {
     private ErrorText errorText;
     private String file,fileName;
     private InputStream image;
+    private String regular = "(?:[-^＾~～？:：；;!\\<>＜＞「」｛｝#＃\\\"”a-zA-Z\\[\\]|=＝$%％\\t\\n\\x0B\\f\\r*n]|\\\\/)";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+
 
         camera=findViewById(R.id.camera_button);
         ocr=findViewById(R.id.post_button);
@@ -59,8 +61,9 @@ public class post extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        camera.setOnClickListener(v ->{
-            if(isExternalStorageWritable()){
+
+        camera.setOnClickListener(v -> {
+            if (isExternalStorageWritable()) {
                 cameraIntent();
             }
         });
@@ -96,15 +99,20 @@ public class post extends AppCompatActivity {
                                     JsonObject files = root.get("files").getAsJsonObject();
                                     JsonObject target = files.get("target").getAsJsonObject();
                                     int error = target.get("error").getAsInt();
-
                                     String ErrorText = errorText.error[error];
                                     Log.i("lightbox", s);
                                     Log.i("lightbox", result);
                                     Log.i("lightbox", ErrorText);
-                                    if(result == "ocrが実行されませんでした"){
+                                    if(result.equals("ocrが実行されませんでした")){
                                         Toast.makeText(post.this,"読み取れませんでした。もう一度取り直してください。",Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        String ocrre =result.replaceAll(regular,"").replaceAll("　", "").replaceAll(" ", "");
+                                        Intent intent = new Intent(getApplication(), qcrkeka.class);
+                                        intent.putExtra("data", ocrre);
+                                        startActivity(intent);
+
                                     }
-                                    Log.d("ocr",result);
+
                                 }
                             }
                     );
@@ -146,6 +154,7 @@ public class post extends AppCompatActivity {
         if (requestCode == RESULT_CAMERA) {
             if(cameraUri != null && isExternalStorageReadable()){
                 imageView.setImageURI(cameraUri);
+
             }
             else{
                 Log.d("debug","cameraUri == null");

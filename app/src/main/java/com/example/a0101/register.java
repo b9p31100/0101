@@ -1,7 +1,5 @@
 package com.example.a0101;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -9,8 +7,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.common.util.CollectionUtils;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,7 +32,7 @@ public class register extends AppCompatActivity {
     };
     private ArrayList<String> array = new ArrayList<>();
     private StringBuilder allergen = new StringBuilder();
-    private String regular = "(?:[-,.、・^\\n]|\\/)";
+    private String regular = "(?:[-,.、・^＾~～？:：；;\\\\<>＜＞「」｛｝#＃\\\"”\\[|=＝$＄%％\\s*n]|\\\\/)";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

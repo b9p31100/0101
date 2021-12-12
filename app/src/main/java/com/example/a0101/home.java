@@ -3,7 +3,6 @@ package com.example.a0101;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,18 +16,13 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);  //activity_homeを遷移先のページの名前に変える(xml)
         //変数はこのファイルだけなので、「btn」と置いても、別のjavaファイルで「btn」でも問題ないです
-        Button btn = (Button) findViewById(R.id.return_button);//return_buttonのところをボタンのid名に変える
+        //Button btn = (Button) findViewById(R.id.return_button);//return_buttonのところをボタンのid名に変える
         Button btn2 =(Button) findViewById(R.id.button_okini);
         Button btn3 =(Button)findViewById(R.id.button_puro);
         Button btn4 =(Button)findViewById(R.id.button_ocr);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
-        btn.setOnClickListener(v -> {
-            mAuth.signOut();
-            //単純な遷移なら↓の方が楽です
-            startActivity(new Intent(home.this, MainActivity.class));
-        });
 
         btn2.setOnClickListener(v ->{
             startActivity(new Intent(home.this, //homeを遷移先のページの名前に変える(java)
