@@ -17,7 +17,6 @@ public class hanteiocr extends AppCompatActivity {
         Intent intentMain = getIntent();
         result = intentMain.getStringExtra("ocrre");
 
-
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
             String reture =result;

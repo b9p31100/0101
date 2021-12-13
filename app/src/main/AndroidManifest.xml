@@ -45,6 +45,13 @@
             android:exported="false"
             android:usesCleartextTraffic="true" />
         <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+        <activity
+            android:name=".barcode"
+            android:exported="false" />
+        <activity
             android:name=".login"
             android:exported="false" />
         <activity
