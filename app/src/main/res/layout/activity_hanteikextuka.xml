@@ -149,7 +149,7 @@
         <Button
             android:layout_width="86dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:background="@drawable/btn_round"
             android:text="↻" />
     </ScrollView>
 
