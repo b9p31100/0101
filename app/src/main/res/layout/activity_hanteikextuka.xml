@@ -150,7 +150,8 @@
             android:layout_width="86dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_round"
-            android:text="↻" />
+            android:text="↻"
+            android:backgroundcolor="#00ff00"/>
     </ScrollView>
 
     <LinearLayout
