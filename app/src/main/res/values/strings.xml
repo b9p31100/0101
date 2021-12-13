@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_0101"/>
+    <string name="app_name">0101</string>
     <string name="description" >border</string>
     <string name="text">TestScrollView</string>
     <string name="読み取り">Button</string>
