@@ -140,41 +140,61 @@
         android:layout_marginTop="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.392"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0"
         tools:context=".MainActivity">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="86dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_gravity="center"
+            android:text="↻" />
+    </ScrollView>
 
-        <ImageView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_constraintRight_toRightof="parent"
+        android:layout_constraintLeft_toLeftOf="parent"
+        android:layout_constraintBottom_toBottomOf="parent"
+        android:layout_constraintTop_toTopOf="parent">
+<!--        -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_constraintRight_toRightof="parent"
+        android:layout_constraintLeft_toLeftOf="parent"
+        android:layout_constraintBottom_toBottomOf="parent"
+        android:layout_constraintTop_toTopOf="parent">>
+
+    <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/description"
             android:scaleType="centerCrop"
-            android:src="@drawable/border" />
+            android:src="@drawable/border"
+        />
+    </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/読み取り"/>
-
-</ScrollView>
+    </LinearLayout>
+ScrollView/>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="200dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginBottom="558dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="108dp"
         android:text="商品名"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
