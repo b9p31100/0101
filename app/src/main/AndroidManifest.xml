@@ -22,6 +22,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.0101">
         <activity
+            android:name=".profiletregister"
+            android:exported="false" />
+        <activity
             android:name=".hanteiocr"
             android:exported="false" />
 
