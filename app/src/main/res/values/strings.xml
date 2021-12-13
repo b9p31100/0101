@@ -3,5 +3,5 @@
     <string name="app_0101"/>
     <string name="description" >border</string>
     <string name="text">TestScrollView</string>
-    <string name="button">Button</string>
+    <string name="読み取り">Button</string>
 </resources>
