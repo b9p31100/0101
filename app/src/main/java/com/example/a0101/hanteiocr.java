@@ -14,10 +14,17 @@ public class hanteiocr extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hanteiocr);
 
+        Intent intentMain = getIntent();
+        result = intentMain.getStringExtra("ocrre");
+
+
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
-            Intent intent = new Intent(getApplication(), qcrkeka.class);
-            startActivity(intent);
+            String reture =result;
+            Intent intentre = new Intent();
+            intentre.putExtra("rest",reture);
+            setResult(RESULT_OK, intentre);
+            finish();
         });
 
 

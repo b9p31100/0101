@@ -38,12 +38,15 @@ public class post extends AppCompatActivity {
     private String file,fileName;
     private InputStream image;
     private String regular = "(?:[-^＾~～？:：；;!\\<>＜＞「」｛｝#＃\\\"”a-zA-Z\\[\\]|=＝$%％\\t\\n\\x0B\\f\\r*n]|\\\\/)";
+    static final int RESULT_SUBACTIVITY = 100;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+
 
 
         camera=findViewById(R.id.camera_button);
@@ -108,11 +111,10 @@ public class post extends AppCompatActivity {
                                     }else{
                                         String ocrre =result.replaceAll(regular,"").replaceAll("　", "").replaceAll(" ", "");
                                         Intent intent = new Intent(getApplication(), qcrkeka.class);
-                                        intent.putExtra("data", ocrre);
+                                        intent.putExtra("data",ocrre);
+                                        intent.putExtra("uri",cameraUri);
                                         startActivity(intent);
-
                                     }
-
                                 }
                             }
                     );
@@ -122,6 +124,7 @@ public class post extends AppCompatActivity {
             }
         });
     }
+
 
     private void cameraIntent(){
         Context context = getApplicationContext();
@@ -154,11 +157,13 @@ public class post extends AppCompatActivity {
         if (requestCode == RESULT_CAMERA) {
             if(cameraUri != null && isExternalStorageReadable()){
                 imageView.setImageURI(cameraUri);
-
             }
             else{
                 Log.d("debug","cameraUri == null");
             }
+        }
+        if(resultCode == RESULT_OK &&  requestCode == RESULT_SUBACTIVITY &&     null != intent) {
+            cameraUri = intent.getParcelableExtra("reuri");
         }
     }
     //外部ストレージが読み書き可能かどうかの確認
@@ -176,4 +181,5 @@ public class post extends AppCompatActivity {
     private class ErrorText {
         String[] error;
     }
+
 }
