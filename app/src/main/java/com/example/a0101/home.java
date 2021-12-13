@@ -21,6 +21,7 @@ public class home extends AppCompatActivity {
         Button btn3 =(Button)findViewById(R.id.button_puro);
         Button btn4 =(Button)findViewById(R.id.button_ocr);
         mAuth = FirebaseAuth.getInstance();
+        Button btn5 =(Button) findViewById(R.id.button2);
 
         //ラムダ式の方が簡単に書けます
 
@@ -37,6 +38,11 @@ public class home extends AppCompatActivity {
         //OCRに遷移
         btn4.setOnClickListener(v ->{
             startActivity(new Intent(home.this, post.class));
+
         });
+        btn5.setOnClickListener(v ->{
+            startActivity(new Intent(home.this, hanteikextuka.class));
+                }
+                );
     }
 }
