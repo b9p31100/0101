@@ -4,177 +4,180 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/purofilsetting"
     tools:context=".hanteikextuka">
-
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="415dp"
-        android:layout_height="728dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/__1" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="642dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.986"
-        app:srcCompat="@drawable/ie"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="102dp"
-        android:layout_marginTop="644dp"
-        android:layout_marginEnd="224dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.377"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986"
-        app:srcCompat="@drawable/__1_"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="96dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="642dp"
-        android:layout_marginEnd="112dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.986"
-        app:srcCompat="@drawable/_7"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="93dp"
-        android:layout_height="82dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="309dp"
-        android:layout_marginTop="640dp"
-        android:layout_marginEnd="4dp"
-        android:background="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/_2"
-        tools:ignore="SpeakableTextPresentCheck" />
-
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="54dp"
         android:layout_marginBottom="63dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="287dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="68dp"
-        android:background="@color/white"
-        android:text="あなたはこの商品を"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
     <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="65dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="348dp"
-        android:layout_marginBottom="327dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        android:id="@+id/imageButton"
+        android:layout_width="87dp"
+        android:layout_height="99dp"
+        android:layout_weight="1"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageButton2"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/_hato" />
+        app:srcCompat="@drawable/ie" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="104dp"
+        android:layout_height="94dp"
+        android:layout_weight="1"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageButton3"
+        app:layout_constraintStart_toEndOf="@id/imageButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/__1_" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="97dp"
+        android:layout_height="96dp"
+        android:layout_weight="1"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageButton4"
+        app:layout_constraintStart_toEndOf="@id/imageButton2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/_7" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="108dp"
+        android:layout_height="89dp"
+        android:layout_weight="1"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageButton3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/_2" />
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="387dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="450dp"
+        android:layout_width="410dp"
+        android:layout_height="532dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0"
-        tools:context=".MainActivity">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.527">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/description"
-            android:scaleType="centerCrop"
-            android:src="@drawable/border" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="160dp"
+                android:layout_height="27dp"
+                android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.692"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.663" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/読み取り"/>
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="123dp"
+                android:layout_height="36dp"
+                android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.804"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.205" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="163dp"
+                android:layout_height="33dp"
+                android:text="あなたはこの商品を"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.271"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.21" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="200dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginBottom="558dp"
-        android:text="商品名"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="90dp"
+                android:layout_height="27dp"
+                android:text="アレルギーは"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.259"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.662" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="334dp"
+                android:layout_height="417dp"
+                android:layout_marginTop="96dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/boder_round2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="257dp"
+                android:layout_height="35dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.084"
+                app:srcCompat="@drawable/border" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="判定結果"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.097" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
