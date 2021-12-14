@@ -34,6 +34,41 @@ public class barcode extends AppCompatActivity {
         //ZXingの下部に書かれた文字の変更
         integrator.setPrompt("Some text");
         integrator.initiateScan();
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference().child("read");
+        ref.orderByChild("JANコード").equalTo(rebarcode).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {
+                if(dataSnapshot != null) {
+                    jan = (String) dataSnapshot.child("JANコード").getValue();
+                    cop = (String) dataSnapshot.child("会社名").getValue();
+                    product = (String) dataSnapshot.child("商品名").getValue();
+                    material = (String) dataSnapshot.child("原材料").getValue();
+                    allergy = (String) dataSnapshot.child("アレルギー").getValue();
+
+                    Log.w("DEBUG_DATA", "JANコード = " + jan);
+                    Log.w("DEBUG_DATA", "会社名 = " + cop);
+                    Log.w("DEBUG_DATA", "商品名 = " + product);
+                    Log.w("DEBUG_DATA", "原材料 = " + material);
+                    Log.w("DEBUG_DATA", "アレルギー = " + allergy);
+                }else{
+                    //OCRに飛ぶような処理
+                }
+
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
     }
 
     @Override

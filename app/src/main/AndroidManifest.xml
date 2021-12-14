@@ -21,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.0101">
-
+        <activity
+            android:name=".setting"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -68,7 +70,6 @@
         <activity
             android:name=".profileset"
             android:exported="false" />
-
         <activity
             android:name=".okiniri"
             android:exported="false" />
