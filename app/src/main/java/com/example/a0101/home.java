@@ -35,7 +35,7 @@ public class home extends AppCompatActivity {
         });
         btn3.setOnClickListener(v ->{
             startActivity(new Intent(home.this, //homeを遷移先のページの名前に変える(java)
-                    profileset.class) );
+                    profiletregister.class) );
             //ユーザー登録に遷移
         });
         //OCRに遷移

@@ -68,9 +68,6 @@
             android:name=".singin"
             android:exported="false" />
         <activity
-            android:name=".profileset"
-            android:exported="false" />
-        <activity
             android:name=".okiniri"
             android:exported="false" />
         <activity
