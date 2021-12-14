@@ -21,6 +21,7 @@ public class home extends AppCompatActivity {
         Button btn3 =(Button)findViewById(R.id.button_puro);
         Button btn4 =(Button)findViewById(R.id.button_ocr);
         Button btn5 =(Button)findViewById(R.id.button2);
+        Button btn6 =(Button)findViewById(R.id.button_bako);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
@@ -41,6 +42,9 @@ public class home extends AppCompatActivity {
         });
         btn5.setOnClickListener(v ->{
             startActivity(new Intent(home.this, hanteikextuka.class));
+        });
+        btn6.setOnClickListener(v ->{
+            startActivity(new Intent(home.this, barcode.class));
         });
     }
 }
