@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -43,6 +44,8 @@ public class barcode extends AppCompatActivity {
 
         final FirebaseDatabase database2 = FirebaseDatabase.getInstance();
         DatabaseReference ref2 = database2.getReference().child("user");
+        DatabaseReference ref3 =database2.getReference().child("tboo2");
+        DatabaseReference ref4 =database2.getReference().child("taboo");
         ref2.orderByKey().equalTo(uid).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot2, String prevChildKey) {
@@ -72,6 +75,56 @@ public class barcode extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
+
+        ref3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String rel2 = null;
+                if(pri.isEmpty()) {
+
+                }else if(pri.equals("ビーガン")){
+                    rel2 = (String) snapshot.child("ビーガン").getValue();
+                }else{
+                    rel2 = (String) snapshot.child("ベジタリアン").getValue();
+                }
+                Log.w("DEBUG_DATA", "religion = " + rel2);
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        ref4.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String pri2 = null;
+                if (rel.isEmpty()) {
+                }else if(rel.equals("イスラム教")){
+                    pri2 =(String)snapshot.child("イスラム教").getValue();
+                }else if(rel.equals("カトリック")){
+                    pri2 =(String) snapshot.child("カトリック").getValue();
+                }else if(rel.equals("ヒンドゥー教")){
+                    pri2 =(String) snapshot.child("ヒンドゥー教").getValue();
+                }else if(rel.equals("モルモン教")){
+                    pri2 =(String) snapshot.child("モルモン教").getValue();
+                }else if(rel.equals("ユダヤ教")){
+                    pri2 =(String) snapshot.child("ユダヤ教").getValue();
+                }else if(rel.equals("大乗仏教")){
+                    pri2=(String) snapshot.child("大乗仏教").getValue();
+                }else if (rel.equals("正教会")){
+                    pri2=(String) snapshot.child("正教会").getValue();
+                }else{
+                    pri2=(String) snapshot.child("観音信仰").getValue();
+                }
+                Log.w("DEBUG_DATA", "principle = " + pri2);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
     }
 
@@ -114,6 +167,7 @@ public class barcode extends AppCompatActivity {
                     //OCRに飛ぶような処理
                 }
 
+
             }
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
@@ -128,6 +182,4 @@ public class barcode extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
     }
-
-
 }
