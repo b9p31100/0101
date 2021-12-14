@@ -7,238 +7,248 @@
     android:orientation="vertical"
     tools:context=".register">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#4EBF53"
-        android:text="宗教を選択"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        tools:ignore="TextContrastCheck" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:minHeight="48dp"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#528DAA"
-        android:backgroundTint="#FD607EB8"
-
-        android:text="主義を選択"
-        android:textColor="#FAFAFA"
-        android:textStyle="bold" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:minHeight="48dp"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:text="個人的に食べられない食品をカンマ区切りで記入(例:鶏肉,魚)"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        tools:ignore="TextContrastCheck" />
-
-    <EditText
-        android:id="@+id/EditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:layout_marginBottom="20dp"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F87E7E"
-        android:text="アレルギーを選択"
-        android:textColor="#FBFBFB"
-        android:textStyle="bold"
-        tools:ignore="TextContrastCheck" />
-
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="288dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
-            <CheckBox
-                android:id="@+id/checkBox"
+            <TextView
+                android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
+                android:background="#4EBF53"
+                android:text="宗教を選択"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
 
-            <CheckBox
-                android:id="@+id/checkBox2"
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:minHeight="48dp"
-                android:text="CheckBox" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
-            <CheckBox
-                android:id="@+id/checkBox3"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
+                android:background="#528DAA"
+                android:backgroundTint="#FD607EB8"
 
-            <CheckBox
-                android:id="@+id/checkBox4"
+                android:text="主義を選択"
+                android:textColor="#FAFAFA"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:minHeight="48dp"
-                android:text="CheckBox" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
-            <CheckBox
-                android:id="@+id/checkBox5"
+            <TextView
+                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
+                android:background="@color/purple_200"
+                android:text="個人的に食べられない食品をカンマ区切りで記入(例:鶏肉,魚)"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
 
-            <CheckBox
-                android:id="@+id/checkBox6"
+            <EditText
+                android:id="@+id/EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:minHeight="48dp"
-                android:text="CheckBox" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
-            <CheckBox
-                android:id="@+id/checkBox7"
+            <TextView
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
+                android:background="#F87E7E"
+                android:text="アレルギーを選択"
+                android:textColor="#FBFBFB"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
 
-            <CheckBox
-                android:id="@+id/checkBox8"
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="288dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox16"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox17"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox19"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:text="CheckBox" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox18"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
-            <CheckBox
-                android:id="@+id/checkBox21"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="CheckBox" />
-
+                android:text="登 録"
+                android:textStyle="bold"
+                app:backgroundTint="#5aae6b" />
         </LinearLayout>
     </ScrollView>
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登 録"
-        android:textStyle="bold"
-        app:backgroundTint="#5aae6b" />
 
 </LinearLayout>
