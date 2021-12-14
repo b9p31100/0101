@@ -25,13 +25,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class hanteiocr extends AppCompatActivity {
-    private String result,hantei,rehan;
+    private String resul,rehan;
     private FirebaseAuth mAuth;
     private ArrayList<String> taboolist;
     private ArrayList<String> allergylist ;
     private FirebaseDatabase database;
     private String bubun ="^.";
     private String bubun2=".$";
+    private String hantei="";
+    private int c=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,8 @@ public class hanteiocr extends AppCompatActivity {
         TextView textView =(TextView)findViewById(R.id.textView10);
 
         Intent intentMain = getIntent();
-        result = intentMain.getStringExtra("ocrre");
+        resul = intentMain.getStringExtra("ocrre");
+        Log.d("a",resul);
         FirebaseUser user = mAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
@@ -50,7 +53,7 @@ public class hanteiocr extends AppCompatActivity {
 
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
-            String reture =result;
+            String reture =resul;
             Intent intentre = new Intent();
             intentre.putExtra("rest",reture);
             setResult(RESULT_OK, intentre);
@@ -98,8 +101,6 @@ public class hanteiocr extends AppCompatActivity {
                         Log.w("DEBUG_DATA", "religion = " + rel2);
                         taboolist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
                     }
-
-                    
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
@@ -132,21 +133,17 @@ public class hanteiocr extends AppCompatActivity {
                         Log.w("DEBUG_DATA", "principle = " + pri2);
 
                         if(CollectionUtils.isEmpty(taboolist)){
-                            hantei ="なし";
+                            textView.setText("食べられます");
                         }else{
                             for (int i = 0; i < taboolist.size(); i++) {
                                 String cheack = taboolist.get(i);
-                                if(result.matches(cheack)){
-                                    hantei ="あり";
+                                if(resul.matches(cheack)){
+                                    textView.setText("食べられません");
                                     break;
+                                }else{
+                                    textView.setText("食べられます");
                                 }
                             }
-                            if(hantei.equals("あり")){
-                                rehan ="食べられません";
-                            }else if(rehan.equals("なし")){
-                                rehan ="食べられます";
-                            }
-                            textView.setText(rehan);
                         }
 
                     }

@@ -3,6 +3,7 @@ package com.example.a0101;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,15 +30,26 @@ public class barcode extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barcode);
+        setContentView(R.layout.activity_hanteikextuka);
         //ZXingのインスタンス作成
         IntentIntegrator integrator = new IntentIntegrator(this);
         //横から縦向きに,ここからZxingの設定が行える
         // 詳細は→https://github.com/journeyapps/zxing-android-embedded
         integrator.setOrientationLocked(false);
         //ZXingの下部に書かれた文字の変更
-        integrator.setPrompt("Some text");
+        integrator.setPrompt("バーコードを読み込んでください");
         integrator.initiateScan();
+
+        Button btn =(Button)findViewById(R.id.button5);
+        btn.setOnClickListener(v ->{
+            IntentIntegrator integrator2 = new IntentIntegrator(this);
+            //横から縦向きに,ここからZxingの設定が行える
+            // 詳細は→https://github.com/journeyapps/zxing-android-embedded
+            integrator2.setOrientationLocked(false);
+            //ZXingの下部に書かれた文字の変更
+            integrator2.setPrompt("バーコードを読み込んでください");
+            integrator2.initiateScan();
+        });
 
         FirebaseUser user = mAuth.getInstance().getCurrentUser();
         String uid = user.getUid();

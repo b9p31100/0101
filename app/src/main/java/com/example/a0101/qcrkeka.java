@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class qcrkeka extends AppCompatActivity {
-    private String result;
+    private String result,result2;
     private Uri reUri;
     static final int RESULT_SUBACTIVITY = 100;
 
@@ -22,6 +22,7 @@ public class qcrkeka extends AppCompatActivity {
         EditText editText = (EditText)findViewById(R.id.Edittext);
         Button button =(Button)findViewById(R.id.button);
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
+
 
         Intent intentMain = getIntent();
         result = intentMain.getStringExtra("data");
@@ -36,9 +37,8 @@ public class qcrkeka extends AppCompatActivity {
         });
 
         button.setOnClickListener(v ->{
-            String result2 =result;
             Intent intent = new Intent(getApplication(), hanteiocr.class);
-            intent.putExtra("ocrre", result2);
+            intent.putExtra("ocrre", result);
             startActivity(intent);
         });
 
