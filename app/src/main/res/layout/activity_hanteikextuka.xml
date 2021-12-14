@@ -83,6 +83,22 @@
         app:layout_constraintVertical_bias="0.992"
         app:srcCompat="@drawable/_2"
         tools:ignore="SpeakableTextPresentCheck" />
+    <ImageButton
+        android:id="@+id/imagebutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/u_2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="411dp"
@@ -199,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="再判定"
-                android:backgroundTint="@color/kimidori"
+                app:backgroundTint="#5aae6b"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintHorizontal_bias="0.116"
                 app:layout_constraintStart_toEndOf="@+id/imageButton9"
@@ -211,7 +227,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="戻る"
-                android:backgroundTint="@color/kimidori"
+                app:backgroundTint="#5aae6b"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/button5"

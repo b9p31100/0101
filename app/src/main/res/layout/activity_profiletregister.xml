@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purofilsetting"
+    android:background="@drawable/home2"
     tools:context=".profiletregister">
 
     <TextView
@@ -12,25 +12,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="プロフィール登録確認"
-        android:textSize="24dp"
         android:textColor="@color/white"
+        android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.091" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="74dp"
@@ -95,6 +97,22 @@
         app:layout_constraintVertical_bias="0.992"
         app:srcCompat="@drawable/_2"
         tools:ignore="SpeakableTextPresentCheck" />
+    <ImageButton
+        android:id="@+id/imagebutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="#00FFFFFF"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/u_2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 
     <Button
         android:id="@+id/button7"
@@ -102,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="108dp"
-        android:backgroundTint="@color/kimidori"
+        app:backgroundTint="#5aae6b"
         android:text="変更"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +147,8 @@
         android:layout_height="29dp"
         android:text="アレルギー"
         android:textSize="20dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/kimidori"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.055"
