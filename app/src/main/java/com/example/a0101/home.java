@@ -45,7 +45,7 @@ public class home extends AppCompatActivity {
         });
 
         btn6.setOnClickListener(v -> {
-            startActivity(new Intent(home.this, barcode.class));
+            startActivity(new Intent(home.this, qcrkeka.class));
         });
         btn7.setOnClickListener(v -> {
             startActivity(new Intent(home.this, option.class));
