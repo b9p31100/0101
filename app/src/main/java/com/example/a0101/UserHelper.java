@@ -3,8 +3,6 @@ package com.example.a0101;
 public class UserHelper {
     String religion,principle,ucustom,allergy,uid;
 
-    public UserHelper(){
-    }
 
     public UserHelper(String religion, String principle, String ucustom, String allergy, String uid) {
         this.religion = religion;

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".profileset">
 
-
     <Button
         android:id="@+id/return_button"
         android:layout_width="100dp"
