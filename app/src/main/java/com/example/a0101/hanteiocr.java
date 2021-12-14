@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -23,18 +25,20 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class hanteiocr extends AppCompatActivity {
-    private String result;
+    private String result,hantei,rehan;
     private FirebaseAuth mAuth;
     private ArrayList<String> taboolist;
     private ArrayList<String> allergylist ;
-    private FirebaseDatabase database,database2,database3;
-
-
+    private FirebaseDatabase database;
+    private String bubun ="^.";
+    private String bubun2=".$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hanteiocr);
+
+        TextView textView =(TextView)findViewById(R.id.textView10);
 
         Intent intentMain = getIntent();
         result = intentMain.getStringExtra("ocrre");
@@ -68,7 +72,12 @@ public class hanteiocr extends AppCompatActivity {
                 all =all.replaceAll("-","");
                 if(all.isEmpty()){
                 }else{
-                    allergylist = (ArrayList<String>) Stream.of(all.split(",")).collect(Collectors.toList());
+                    allergylist = (ArrayList<String>) Stream.of(all.split("、")).collect(Collectors.toList());
+                }
+                if(ucu.isEmpty()){
+
+                }else{
+                    taboolist =(ArrayList<String>) Stream.of(ucu.split("、")).collect(Collectors.toList());
                 }
                 Log.w("DEBUG_DATA", "principle = " + pri);
                 Log.w("DEBUG_DATA", "religion = " + rel);
@@ -79,16 +88,18 @@ public class hanteiocr extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        String rel2;
-                        if(pri.equals("ビーガン")){
+                        String rel2 = "";
+                        if (pri.isEmpty()){
+                        }else if(pri.equals("ビーガン")){
                             rel2 = (String) snapshot.child("ビーガン").getValue();
                         }else{
                             rel2 = (String) snapshot.child("ベジタリアン").getValue();
                         }
                         Log.w("DEBUG_DATA", "religion = " + rel2);
-
+                        taboolist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
                     }
 
+                    
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
@@ -98,8 +109,9 @@ public class hanteiocr extends AppCompatActivity {
                 ref3.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String pri2;
-                        if(rel.equals("イスラム教")){
+                        String pri2 = "";
+                        if(rel.isEmpty()){
+                        }else if(rel.equals("イスラム教")){
                             pri2 =(String)snapshot.child("イスラム教").getValue();
                         }else if(rel.equals("カトリック")){
                             pri2 =(String) snapshot.child("カトリック").getValue();
@@ -116,16 +128,32 @@ public class hanteiocr extends AppCompatActivity {
                         }else{
                             pri2=(String) snapshot.child("観音信仰").getValue();
                         }
+                        taboolist =(ArrayList<String>) Stream.of(pri2.split("、")).collect(Collectors.toList());
                         Log.w("DEBUG_DATA", "principle = " + pri2);
-                    }
 
+                        if(CollectionUtils.isEmpty(taboolist)){
+                            hantei ="なし";
+                        }else{
+                            for (int i = 0; i < taboolist.size(); i++) {
+                                String cheack = taboolist.get(i);
+                                if(result.matches(cheack)){
+                                    hantei ="あり";
+                                    break;
+                                }
+                            }
+                            if(hantei.equals("あり")){
+                                rehan ="食べられません";
+                            }else if(rehan.equals("なし")){
+                                rehan ="食べられます";
+                            }
+                            textView.setText(rehan);
+                        }
+
+                    }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
-
-
             }
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -140,6 +168,8 @@ public class hanteiocr extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
+
 
     }
 }
