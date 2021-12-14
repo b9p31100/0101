@@ -19,6 +19,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class barcode extends AppCompatActivity {
     private String rebarcode;
+    private String jan, cop, product, material, allergy;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +60,11 @@ public class barcode extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {
                 if(dataSnapshot != null) {
-                    String jan = (String) dataSnapshot.child("JANコード").getValue();
-                    String cop = (String) dataSnapshot.child("会社名").getValue();
-                    String product = (String) dataSnapshot.child("商品名").getValue();
-                    String material = (String) dataSnapshot.child("原材料").getValue();
-                    String allergy = (String) dataSnapshot.child("アレルギー").getValue();
+                    jan = (String) dataSnapshot.child("JANコード").getValue();
+                    cop = (String) dataSnapshot.child("会社名").getValue();
+                    product = (String) dataSnapshot.child("商品名").getValue();
+                    material = (String) dataSnapshot.child("原材料").getValue();
+                    allergy = (String) dataSnapshot.child("アレルギー").getValue();
 
                     Log.w("DEBUG_DATA", "JANコード = " + jan);
                     Log.w("DEBUG_DATA", "会社名 = " + cop);

@@ -35,7 +35,7 @@ public class home extends AppCompatActivity {
         });
         btn3.setOnClickListener(v ->{
             startActivity(new Intent(home.this, //homeを遷移先のページの名前に変える(java)
-                    register.class) );
+                    profileset.class) );
             //ユーザー登録に遷移
         });
         //OCRに遷移
@@ -48,7 +48,7 @@ public class home extends AppCompatActivity {
         btn6.setOnClickListener(v ->{
             startActivity(new Intent(home.this, barcode.class));
         });
-        btn6.setOnClickListener(v ->{
+        btn7.setOnClickListener(v ->{
             startActivity(new Intent(home.this, option.class));
         });
     }
