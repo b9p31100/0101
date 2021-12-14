@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.032"
         app:srcCompat="@drawable/title" />
 
     <TextView
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:background="#00F3F3F3"
         android:text="OCR 読み取り結果"
-        android:textColor="#000"
+        android:textColor="#6E6E6E"
         android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,13 +87,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="116dp"
         android:text="判定する"
         android:textSize="12sp"
         app:backgroundTint="#5aae6b"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

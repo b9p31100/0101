@@ -341,8 +341,6 @@ public class register extends AppCompatActivity {
         });
 
 
-
-
         btn.setOnClickListener(v ->{
             String allergy ="";
             FirebaseUser user = mAuth.getInstance().getCurrentUser();

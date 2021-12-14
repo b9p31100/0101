@@ -3,6 +3,7 @@ package com.example.a0101;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,8 @@ public class home extends AppCompatActivity {
         Button btn3 =(Button)findViewById(R.id.button_puro);
         Button btn4 =(Button)findViewById(R.id.button_ocr);
         Button btn5 =(Button)findViewById(R.id.button2);
+        Button btn6 =(Button)findViewById(R.id.button_bako);
+        ImageButton btn7 =(ImageButton) findViewById(R.id.imageButton3);
         mAuth = FirebaseAuth.getInstance();
 
         //ラムダ式の方が簡単に書けます
@@ -32,7 +35,7 @@ public class home extends AppCompatActivity {
         });
         btn3.setOnClickListener(v ->{
             startActivity(new Intent(home.this, //homeを遷移先のページの名前に変える(java)
-                    register.class) );
+                    profileset.class) );
             //ユーザー登録に遷移
         });
         //OCRに遷移
@@ -41,6 +44,12 @@ public class home extends AppCompatActivity {
         });
         btn5.setOnClickListener(v ->{
             startActivity(new Intent(home.this, hanteikextuka.class));
+        });
+        btn6.setOnClickListener(v ->{
+            startActivity(new Intent(home.this, barcode.class));
+        });
+        btn7.setOnClickListener(v ->{
+            startActivity(new Intent(home.this, option.class));
         });
     }
 }
