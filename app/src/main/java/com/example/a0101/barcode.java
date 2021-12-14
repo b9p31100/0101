@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,9 +20,10 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class barcode extends AppCompatActivity {
+    private FirebaseAuth mAuth;
     private String rebarcode;
     private String jan, cop, product, material, allergy;
-
+    private String pri, rel, all, ucu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,42 @@ public class barcode extends AppCompatActivity {
         //ZXingの下部に書かれた文字の変更
         integrator.setPrompt("Some text");
         integrator.initiateScan();
+
+        FirebaseUser user = mAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        final FirebaseDatabase database2 = FirebaseDatabase.getInstance();
+        DatabaseReference ref2 = database2.getReference().child("user");
+        ref2.orderByKey().equalTo(uid).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot2, String prevChildKey) {
+                if(dataSnapshot2 != null) {
+                    pri = (String) dataSnapshot2.child("principle").getValue();
+                    rel = (String) dataSnapshot2.child("religion").getValue();
+                    all = (String) dataSnapshot2.child("allergy").getValue();
+                    ucu = (String) dataSnapshot2.child("ucustom").getValue();
+
+                    Log.w("DEBUG_DATA", "principle = " + pri);
+                    Log.w("DEBUG_DATA", "religion = " + rel);
+                    Log.w("DEBUG_DATA", "allergy = " + all);
+                    Log.w("DEBUG_DATA", "ucustom = " + ucu);
+                }else{
+                    //OCRに飛ぶような処理
+                }
+
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {}
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
     }
 
     @Override
