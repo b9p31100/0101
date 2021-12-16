@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 public class hanteiocr extends AppCompatActivity {
     private String resul,rehan;
     private FirebaseAuth mAuth;
-    private ArrayList<String> taboolist;
+    private ArrayList<String> rellist,prilist,uculist,taboolist;
     private ArrayList<String> allergylist ;
     private FirebaseDatabase database;
     private String bubun ="^.";
@@ -49,7 +49,9 @@ public class hanteiocr extends AppCompatActivity {
         String uid = user.getUid();
 
         allergylist = new ArrayList<>();
-        taboolist =new ArrayList<>();
+        rellist =new ArrayList<>();
+        uculist =new ArrayList<>();
+        prilist =new ArrayList<>();
 
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
@@ -72,7 +74,7 @@ public class hanteiocr extends AppCompatActivity {
                  String all = (String) datasnapshot.child("allergy").getValue();
                  String ucu = (String) datasnapshot.child("ucustom").getValue();
 
-                all =all.replaceAll("-","");
+                all =all.replaceAll(",","、");
                 if(all.isEmpty()){
                 }else{
                     allergylist = (ArrayList<String>) Stream.of(all.split("、")).collect(Collectors.toList());
@@ -80,7 +82,7 @@ public class hanteiocr extends AppCompatActivity {
                 if(ucu.isEmpty()){
 
                 }else{
-                    taboolist =(ArrayList<String>) Stream.of(ucu.split("、")).collect(Collectors.toList());
+                    uculist =(ArrayList<String>) Stream.of(ucu.split(",")).collect(Collectors.toList());
                 }
                 Log.w("DEBUG_DATA", "principle = " + pri);
                 Log.w("DEBUG_DATA", "religion = " + rel);
@@ -99,7 +101,7 @@ public class hanteiocr extends AppCompatActivity {
                             rel2 = (String) snapshot.child("ベジタリアン").getValue();
                         }
                         Log.w("DEBUG_DATA", "religion = " + rel2);
-                        taboolist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
+                        rellist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -135,9 +137,22 @@ public class hanteiocr extends AppCompatActivity {
                         if(CollectionUtils.isEmpty(taboolist)){
                             textView.setText("食べられます");
                         }else{
+                            String cheack;
+                            if(ucu.isEmpty()){ }else{
+                                for(int j =0; j<uculist.size();j++){
+                                    cheack =uculist.get(j);
+                                    taboolist.add(cheack);
+                                }
+                            }
+
+                            for(int j =0; j<rellist.size();j++){
+                                cheack =rellist.get(j);
+                                taboolist.add(cheack);
+                            }
                             for (int i = 0; i < taboolist.size(); i++) {
-                                String cheack = taboolist.get(i);
-                                if(resul.matches(cheack)){
+                                cheack = taboolist.get(i);
+                                Log.d("a",cheack);
+                                if(resul.matches("^.*"+cheack+".*$")){
                                     textView.setText("食べられません");
                                     break;
                                 }else{
