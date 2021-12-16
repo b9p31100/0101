@@ -11,10 +11,10 @@
         android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginTop="16dp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />
