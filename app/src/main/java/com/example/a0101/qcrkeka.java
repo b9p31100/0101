@@ -9,9 +9,12 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class qcrkeka extends AppCompatActivity {
     private String result,result2;
     private Uri reUri;
+    private FirebaseAuth mAuth;
     static final int RESULT_SUBACTIVITY = 100;
 
     @Override
@@ -22,6 +25,10 @@ public class qcrkeka extends AppCompatActivity {
         EditText editText = (EditText)findViewById(R.id.Edittext);
         Button button =(Button)findViewById(R.id.button);
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
+        ImageButton btn8 = (ImageButton) findViewById(R.id.imageButton5);
+        ImageButton btn9 =(ImageButton)findViewById(R.id.imageButton2);
+        ImageButton btn10 = (ImageButton) findViewById(R.id.imageButton3);
+        ImageButton btn11 =(ImageButton)findViewById(R.id.imageButton4);
 
 
         Intent intentMain = getIntent();
@@ -40,6 +47,22 @@ public class qcrkeka extends AppCompatActivity {
             Intent intent = new Intent(getApplication(), hanteiocr.class);
             intent.putExtra("ocrre", result);
             startActivity(intent);
+        });
+        btn8.setOnClickListener(v -> {
+            startActivity(new Intent(qcrkeka.this, //homeを遷移先のページの名前に変える(java)
+                    home.class));
+        });
+        btn9.setOnClickListener(v -> {
+            startActivity(new Intent(qcrkeka.this, //homを遷移先のページの名前に変える(java)
+                    setting.class));
+        });
+        btn10.setOnClickListener(v -> {
+            startActivity(new Intent(qcrkeka.this, //homeを遷移先のページの名前に変える(java)
+                    option.class));
+        });
+        btn11.setOnClickListener(v -> {
+            startActivity(new Intent(qcrkeka.this, //homeを遷移先のページの名前に変える(java)
+                    profiletregister.class));
         });
 
     }

@@ -17,6 +17,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 //ユーザー登録画面
@@ -34,13 +35,31 @@ public class singin extends AppCompatActivity {
         editText = findViewById(R.id.email);
         editText2 = findViewById(R.id.password);
         Button btn = (Button)findViewById(R.id.button);
+        ImageButton btn6 = (ImageButton) findViewById(R.id.imageButton1);
+        ImageButton btn7 = (ImageButton) findViewById(R.id.imageButton2);
+        ImageButton btn8 = (ImageButton) findViewById(R.id.imageButton3);
+        ImageButton btn9 = (ImageButton) findViewById(R.id.imageButton4);
         mAuth = FirebaseAuth.getInstance(); //mAuth　インスタンスを初期化
 
-        btn.setOnClickListener(v ->{
+
             //ログインボタンを押した時の処理
+
+            //Button btn = (Button) findViewById(R.id.homebutton1);//return_buttonのところをボタンのid名に変える
+            btn6.setOnClickListener(v -> {
+                startActivity(new Intent(singin.this, home.class));
+            });
+            btn7.setOnClickListener(v -> {
+                startActivity(new Intent(singin.this, setting.class));
+            });
+            btn8.setOnClickListener(v -> {
+                startActivity(new Intent(singin.this, option.class));
+            });
+            btn9.setOnClickListener(v -> {
+                startActivity(new Intent(singin.this, profiletregister.class));
+            });
             createuser();
-        });
-    }
+        };
+
 
     private void createuser() {
         //メアドとパスワードを取得
