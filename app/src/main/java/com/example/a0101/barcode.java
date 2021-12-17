@@ -105,9 +105,9 @@ public class barcode extends AppCompatActivity {
                             Log.w("DEBUG_DATA", "religion = " + rel2);
                             rellist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
                         }
-                        }@Override
+                    }@Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        }
+                    }
                 });
                 ref4.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -139,7 +139,7 @@ public class barcode extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        }
+                    }
                 });
 
 
@@ -161,12 +161,12 @@ public class barcode extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
-        TextView textView = findViewById(R.id.textView2);
-        TextView textView2 =findViewById(R.id.textView6);
-        TextView textView3 =findViewById(R.id.textView3);
-        TextView textView4 =findViewById(R.id.textView4);
-        TextView textView5 =findViewById(R.id.textView10);
-        TextView textView6 =findViewById(R.id.textView7);
+        TextView textView = findViewById(R.id.textView10);
+        TextView textView2 =findViewById(R.id.textView11);
+        TextView textView3 =findViewById(R.id.textView12);
+        TextView textView4 =findViewById(R.id.textView13);
+        TextView textView5 =findViewById(R.id.textView14);
+        TextView textView6 =findViewById(R.id.textView15);
 
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -199,17 +199,17 @@ public class barcode extends AppCompatActivity {
                     }
                 }
 
-                    Log.w("DEBUG_DATA", "JANコード = " + jan);
-                    Log.w("DEBUG_DATA", "会社名 = " + cop);
-                    Log.w("DEBUG_DATA", "商品名 = " + product);
-                    Log.w("DEBUG_DATA", "原材料 = " + material);
-                    Log.w("DEBUG_DATA", "アレルギー = " + allergy);
+                Log.w("DEBUG_DATA", "JANコード = " + jan);
+                Log.w("DEBUG_DATA", "会社名 = " + cop);
+                Log.w("DEBUG_DATA", "商品名 = " + product);
+                Log.w("DEBUG_DATA", "原材料 = " + material);
+                Log.w("DEBUG_DATA", "アレルギー = " + allergy);
 
-                    textView3.setText("会社名"+cop);
-                    textView4.setText("商品名:"+product);
-                    textView5.setText("原材料:"+material);
-                    textView5.setMovementMethod(new ScrollingMovementMethod());
-                    textView6.setText("アレルギー物質:"+allergy);
+                textView3.setText("会社名"+cop);
+                textView4.setText("商品名:"+product);
+                textView5.setText("原材料:"+material);
+                textView5.setMovementMethod(new ScrollingMovementMethod());
+                textView6.setText("アレルギー物質:"+allergy);
 
 
                 String cheack;
