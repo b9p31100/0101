@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,27 +29,11 @@ public class login extends AppCompatActivity {
         editText = findViewById(R.id.email);
         editText2 = findViewById(R.id.password);
         Button btn = (Button)findViewById(R.id.button);
-        ImageButton btn3 =(ImageButton) findViewById(R.id.imageButton1);
-        ImageButton btn4 =(ImageButton)findViewById(R.id.imageButton2);
-        ImageButton btn5 =(ImageButton)findViewById(R.id.imageButton3);
-        ImageButton btn6 =(ImageButton)findViewById(R.id.imageButton4);
         mAuth = FirebaseAuth.getInstance(); //mAuth　インスタンスを初期化
 
         btn.setOnClickListener(v->{
             //loginuserメソッドへ
             loginuser();
-        });
-        btn3.setOnClickListener(v -> {
-            startActivity(new Intent(login.this, home.class));
-        });
-        btn4.setOnClickListener(v -> {
-            startActivity(new Intent(login.this, setting.class));
-        });
-        btn5.setOnClickListener(v -> {
-            startActivity(new Intent(login.this, option.class));
-        });
-        btn6.setOnClickListener(v -> {
-            startActivity(new Intent(login.this, profiletregister.class));
         });
     }
 

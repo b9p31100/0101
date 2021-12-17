@@ -6,7 +6,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,10 +41,6 @@ public class register extends AppCompatActivity {
 
         EditText editText =(EditText)findViewById(R.id.EditText);
         Button btn =(Button)findViewById(R.id.button);
-        ImageButton btn3 =(ImageButton) findViewById(R.id.imageButton1);
-        ImageButton btn4 =(ImageButton)findViewById(R.id.imageButton2);
-        ImageButton btn5 =(ImageButton)findViewById(R.id.imageButton3);
-        ImageButton btn6 =(ImageButton)findViewById(R.id.imageButton4);
 
 
         //宗教のプルダウンリスト作成
@@ -379,18 +374,6 @@ public class register extends AppCompatActivity {
             Toast.makeText(register.this, "登録完了", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(register.this, home.class));
 
-        });
-        btn3.setOnClickListener(v -> {
-            startActivity(new Intent(register.this, home.class));
-        });
-        btn4.setOnClickListener(v -> {
-            startActivity(new Intent(register.this, setting.class));
-        });
-        btn5.setOnClickListener(v -> {
-            startActivity(new Intent(register.this, option.class));
-        });
-        btn6.setOnClickListener(v -> {
-            startActivity(new Intent(register.this, profiletregister.class));
         });
 
     }

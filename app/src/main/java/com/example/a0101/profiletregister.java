@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,24 +26,8 @@ public class profiletregister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profiletregister);
         Button btn1 = (Button) findViewById(R.id.button7);
-        ImageButton btn6 = (ImageButton) findViewById(R.id.imageButton1);
-        ImageButton btn7 = (ImageButton) findViewById(R.id.imageButton2);
-        ImageButton btn8 = (ImageButton) findViewById(R.id.imageButton3);
-        ImageButton btn9 = (ImageButton) findViewById(R.id.imageButton4);
         mAuth = FirebaseAuth.getInstance();
         //Button btn = (Button) findViewById(R.id.homebutton1);//return_buttonのところをボタンのid名に変える
-        btn6.setOnClickListener(v -> {
-            startActivity(new Intent(profiletregister.this, home.class));
-        });
-        btn7.setOnClickListener(v -> {
-            startActivity(new Intent(profiletregister.this, setting.class));
-        });
-        btn8.setOnClickListener(v -> {
-            startActivity(new Intent(profiletregister.this, option.class));
-        });
-        btn9.setOnClickListener(v -> {
-            startActivity(new Intent(profiletregister.this, profiletregister.class));
-        });
 
         btn1.setOnClickListener(v ->{
             startActivity(new Intent(profiletregister.this, register.class));
