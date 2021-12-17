@@ -55,6 +55,10 @@ public class hanteiocr extends AppCompatActivity {
 
         Button btn =(Button)findViewById(R.id.button5);
         Button btn2 =(Button)findViewById(R.id.button6);
+        ImageButton btn3 =(ImageButton) findViewById(R.id.imageButton1);
+        ImageButton btn4 =(ImageButton)findViewById(R.id.imageButton2);
+        ImageButton btn5 =(ImageButton)findViewById(R.id.imageButton3);
+        ImageButton btn6 =(ImageButton)findViewById(R.id.imageButton4);
 
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
@@ -71,6 +75,18 @@ public class hanteiocr extends AppCompatActivity {
             startActivity(new Intent(hanteiocr.this,home.class));
         });
 
+        btn3.setOnClickListener(v -> {
+            startActivity(new Intent(hanteiocr.this, home.class));
+        });
+        btn4.setOnClickListener(v -> {
+            startActivity(new Intent(hanteiocr.this, setting.class));
+        });
+        btn5.setOnClickListener(v -> {
+            startActivity(new Intent(hanteiocr.this, option.class));
+        });
+        btn6.setOnClickListener(v -> {
+            startActivity(new Intent(hanteiocr.this, profiletregister.class));
+        });
         database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference().child("user");
         DatabaseReference ref2 =database.getReference().child("tboo2");

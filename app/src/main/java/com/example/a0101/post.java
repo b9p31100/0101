@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -52,6 +53,10 @@ public class post extends AppCompatActivity {
         camera=findViewById(R.id.camera_button);
         ocr=findViewById(R.id.post_button);
         imageView = findViewById(R.id.image_view);
+        ImageButton btn3 =(ImageButton) findViewById(R.id.imageButton1);
+        ImageButton btn4 =(ImageButton)findViewById(R.id.imageButton2);
+        ImageButton btn5 =(ImageButton)findViewById(R.id.imageButton3);
+        ImageButton btn6 =(ImageButton)findViewById(R.id.imageButton4);
 
         httpAccess = new HttpAccess("");
         assetManager = post.this.getResources().getAssets();
@@ -122,6 +127,18 @@ public class post extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
+        });
+        btn3.setOnClickListener(v -> {
+            startActivity(new Intent(post.this, home.class));
+        });
+        btn4.setOnClickListener(v -> {
+            startActivity(new Intent(post.this, setting.class));
+        });
+        btn5.setOnClickListener(v -> {
+            startActivity(new Intent(post.this, option.class));
+        });
+        btn6.setOnClickListener(v -> {
+            startActivity(new Intent(post.this, profiletregister.class));
         });
     }
 
