@@ -352,7 +352,7 @@ public class register extends AppCompatActivity {
             String principle = (String) spinner2.getSelectedItem();
 
             String custom = editText.getText().toString();
-            String ucustom = custom.replaceAll(regular,",");
+            String ucustom = custom.replaceAll(regular,",").replaceAll("　", ",").replaceAll(" ", ",");
             //チェックリストのアレルギーを選択したどうかの判定(これが無いとエラーに)
             if (CollectionUtils.isEmpty(array)) {
                 allergy = "なし";

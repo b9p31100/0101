@@ -209,7 +209,7 @@ public class barcode extends AppCompatActivity {
                     textView4.setText("商品名:"+product);
                     textView5.setText("原材料:"+material);
                     textView5.setMovementMethod(new ScrollingMovementMethod());
-                    textView6.setText("アレルギー物質"+allergy);
+                    textView6.setText("アレルギー物質:"+allergy);
 
 
                 String cheack;
