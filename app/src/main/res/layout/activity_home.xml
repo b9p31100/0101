@@ -121,8 +121,8 @@
 
     <Button
         android:id="@+id/button_puro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:background="@drawable/btn_round"
         android:drawableTop="@drawable/_223"
         android:text="プロフィール"
@@ -139,8 +139,8 @@
 
     <Button
         android:id="@+id/button_okini"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:background="@drawable/btn_round"
         android:drawableTop="@drawable/_28"
         android:text="お気に入りリスト"
@@ -157,8 +157,8 @@
 
     <Button
         android:id="@+id/button_bako"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:background="@drawable/btn_round"
         android:drawableTop="@drawable/_29"
         android:text="バーコード"
@@ -175,8 +175,8 @@
 
     <Button
         android:id="@+id/button_ocr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:background="@drawable/btn_round"
         android:drawableTop="@drawable/_40"
         android:text="OCR"
@@ -194,4 +194,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
