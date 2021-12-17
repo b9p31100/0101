@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 public class hanteiocr extends AppCompatActivity {
     private String resul,rehan;
     private FirebaseAuth mAuth;
-    private ArrayList<String> rellist,prilist,uculist,taboolist;
+    private ArrayList<String> rellist,uculist,taboolist;
     private ArrayList<String> allergylist ;
     private FirebaseDatabase database;
     private String bubun ="^.";
@@ -51,7 +51,6 @@ public class hanteiocr extends AppCompatActivity {
         allergylist = new ArrayList<>();
         rellist =new ArrayList<>();
         uculist =new ArrayList<>();
-        prilist =new ArrayList<>();
 
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
@@ -94,14 +93,16 @@ public class hanteiocr extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         String rel2 = "";
-                        if (pri.isEmpty()){
-                        }else if(pri.equals("ビーガン")){
+                        if (pri.isEmpty()){ }else if(pri.equals("ビーガン")){
                             rel2 = (String) snapshot.child("ビーガン").getValue();
                         }else{
                             rel2 = (String) snapshot.child("ベジタリアン").getValue();
                         }
-                        Log.w("DEBUG_DATA", "religion = " + rel2);
-                        rellist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
+                        if(pri.isEmpty()){}else{
+                            Log.w("DEBUG_DATA", "religion = " + rel2);
+                            rellist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
+                        }
+
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -131,32 +132,37 @@ public class hanteiocr extends AppCompatActivity {
                         }else{
                             pri2=(String) snapshot.child("観音信仰").getValue();
                         }
-                        taboolist =(ArrayList<String>) Stream.of(pri2.split("、")).collect(Collectors.toList());
-                        Log.w("DEBUG_DATA", "principle = " + pri2);
+                        if(rel.isEmpty()){}else{
+                            taboolist =(ArrayList<String>) Stream.of(pri2.split("、")).collect(Collectors.toList());
+                            Log.w("DEBUG_DATA", "principle = " + pri2);
+                        }
 
-                        if(CollectionUtils.isEmpty(taboolist)){
+                        if(CollectionUtils.isEmpty(taboolist) && CollectionUtils.isEmpty(uculist)){
                             textView.setText("食べられます");
                         }else{
                             String cheack;
-                            if(ucu.isEmpty()){ }else{
+                            if(CollectionUtils.isEmpty(uculist)){ }else{
                                 for(int j =0; j<uculist.size();j++){
                                     cheack =uculist.get(j);
                                     taboolist.add(cheack);
                                 }
                             }
-
-                            for(int j =0; j<rellist.size();j++){
-                                cheack =rellist.get(j);
-                                taboolist.add(cheack);
+                            if(CollectionUtils.isEmpty(rellist)) {}else{
+                                for (int j = 0; j < rellist.size(); j++) {
+                                    cheack = rellist.get(j);
+                                    taboolist.add(cheack);
+                                }
                             }
-                            for (int i = 0; i < taboolist.size(); i++) {
-                                cheack = taboolist.get(i);
-                                Log.d("a",cheack);
-                                if(resul.matches("^.*"+cheack+".*$")){
-                                    textView.setText("食べられません");
-                                    break;
-                                }else{
-                                    textView.setText("食べられます");
+                            if(CollectionUtils.isEmpty(taboolist)) {}else{
+                                for (int i = 0; i < taboolist.size(); i++) {
+                                    cheack = taboolist.get(i);
+                                    Log.d("a", cheack);
+                                    if (resul.matches("^.*" + cheack + ".*$")) {
+                                        textView.setText("食べられません");
+                                        break;
+                                    } else {
+                                        textView.setText("食べられます");
+                                    }
                                 }
                             }
                         }

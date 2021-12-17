@@ -1,6 +1,5 @@
 package com.example.a0101;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.common.util.CollectionUtils;
@@ -30,20 +28,14 @@ import java.util.stream.Stream;
 
 public class barcode extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private ArrayList<String> rellist, uculist, taboolist;
-    private ArrayList<String> allergylist;
+    private ArrayList<String> rellist,uculist,allergylist,taboolist;
     private String rebarcode;
     private String jan, cop, product, material, allergy;
     private String pri, rel, all, ucu;
-    private ArrayList<String> tab_li = taboolist;
-    private ArrayList<String> all_li = allergylist;
-    private ArrayList<String> ucu_li = uculist;
-    private ArrayList<String> rel_li = rellist;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hanteikextuka);
+        setContentView(R.layout.activity_barcode);
         //ZXingのインスタンス作成
         IntentIntegrator integrator = new IntentIntegrator(this);
         //横から縦向きに,ここからZxingの設定が行える
@@ -80,39 +72,74 @@ public class barcode extends AppCompatActivity {
         ref2.orderByKey().equalTo(uid).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot2, String prevChildKey) {
-                if(dataSnapshot2 != null) {
-                    pri = (String) dataSnapshot2.child("principle").getValue();
-                    rel = (String) dataSnapshot2.child("religion").getValue();
-                    all = (String) dataSnapshot2.child("allergy").getValue();
-                    ucu = (String) dataSnapshot2.child("ucustom").getValue();
+                pri = (String) dataSnapshot2.child("principle").getValue();
+                rel = (String) dataSnapshot2.child("religion").getValue();
+                all = (String) dataSnapshot2.child("allergy").getValue();
+                ucu = (String) dataSnapshot2.child("ucustom").getValue();
 
-                    all =all.replaceAll("-","");
-                    if(all.isEmpty()){
-                    }else{
-                        allergylist = (ArrayList<String>) Stream.of(all.split("、")).collect(Collectors.toList());
-                    }
-                    if(ucu.isEmpty()){
-
-                    }else{
-                        uculist =(ArrayList<String>) Stream.of(ucu.split("、")).collect(Collectors.toList());
-                    }
-                    Log.w("DEBUG_DATA", "principle = " + pri);
-                    Log.w("DEBUG_DATA", "religion = " + rel);
-                    Log.w("DEBUG_DATA", "allergy = " + all);
-                    Log.w("DEBUG_DATA", "ucustom = " + ucu);
-                }else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(barcode.this);
-                    builder.setMessage("OCR判定画面に移動しますか？")
-                            .setTitle("読み込んだバーコードはありませんでした")
-                            .setPositiveButton("確認", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int id) {
-                                    startActivity(new Intent(barcode.this, post.class));
-                                }
-                            });
-                    builder.show();
-
+                all =all.replaceAll("-","");
+                if(all.isEmpty()){ }else{
+                    allergylist = (ArrayList<String>) Stream.of(all.split("、")).collect(Collectors.toList());
                 }
+                if(ucu.isEmpty()){ }else{
+                    uculist =(ArrayList<String>) Stream.of(ucu.split("、")).collect(Collectors.toList());
+                }
+                Log.w("DEBUG_DATA", "principle = " + pri);
+                Log.w("DEBUG_DATA", "religion = " + rel);
+                Log.w("DEBUG_DATA", "allergy = " + all);
+                Log.w("DEBUG_DATA", "ucustom = " + ucu);
+
+                ref3.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String rel2 = "";
+                        if(pri.equals("なし")) {
+                        }else if(pri.equals("ビーガン")){
+                            rel2 = (String) snapshot.child("ビーガン").getValue();
+                        }else{
+                            rel2 = (String) snapshot.child("ベジタリアン").getValue();
+                        }
+                        if(pri.equals("なし")){}else{
+                            Log.w("DEBUG_DATA", "religion = " + rel2);
+                            rellist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
+                        }
+                        }@Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                });
+                ref4.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String pri2 = "";
+                        if (rel.equals("なし")) {
+                        }else if(rel.equals("イスラム教")){
+                            pri2 =(String)snapshot.child("イスラム教").getValue();
+                        }else if(rel.equals("カトリック")){
+                            pri2 =(String) snapshot.child("カトリック").getValue();
+                        }else if(rel.equals("ヒンドゥー教")){
+                            pri2 =(String) snapshot.child("ヒンドゥー教").getValue();
+                        }else if(rel.equals("モルモン教")){
+                            pri2 =(String) snapshot.child("モルモン教").getValue();
+                        }else if(rel.equals("ユダヤ教")){
+                            pri2 =(String) snapshot.child("ユダヤ教").getValue();
+                        }else if(rel.equals("大乗仏教")){
+                            pri2=(String) snapshot.child("大乗仏教").getValue();
+                        }else if (rel.equals("正教会")){
+                            pri2=(String) snapshot.child("正教会").getValue();
+                        }else{
+                            pri2=(String) snapshot.child("観音信仰").getValue();
+                        }
+                        if(rel.equals("なし")){}else{
+                            taboolist =(ArrayList<String>) Stream.of(pri2.split("、")).collect(Collectors.toList());
+                            Log.w("DEBUG_DATA", "principle = " + pri2);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                });
+
 
             }
             @Override
@@ -128,61 +155,12 @@ public class barcode extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
 
-        ref3.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String rel2 = "";
-                if(pri.isEmpty()) {
-                }else if(pri.equals("ビーガン")){
-                    rel2 = (String) snapshot.child("ビーガン").getValue();
-                }else{
-                    rel2 = (String) snapshot.child("ベジタリアン").getValue();
-                }
-                Log.w("DEBUG_DATA", "religion = " + rel2);
-                rellist =(ArrayList<String>) Stream.of(rel2.split("、")).collect(Collectors.toList());
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-        ref4.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String pri2 = "";
-                if (rel.isEmpty()) {
-                }else if(rel.equals("イスラム教")){
-                    pri2 =(String)snapshot.child("イスラム教").getValue();
-                }else if(rel.equals("カトリック")){
-                    pri2 =(String) snapshot.child("カトリック").getValue();
-                }else if(rel.equals("ヒンドゥー教")){
-                    pri2 =(String) snapshot.child("ヒンドゥー教").getValue();
-                }else if(rel.equals("モルモン教")){
-                    pri2 =(String) snapshot.child("モルモン教").getValue();
-                }else if(rel.equals("ユダヤ教")){
-                    pri2 =(String) snapshot.child("ユダヤ教").getValue();
-                }else if(rel.equals("大乗仏教")){
-                    pri2=(String) snapshot.child("大乗仏教").getValue();
-                }else if (rel.equals("正教会")){
-                    pri2=(String) snapshot.child("正教会").getValue();
-                }else{
-                    pri2=(String) snapshot.child("観音信仰").getValue();
-                }
-                taboolist =(ArrayList<String>) Stream.of(pri2.split("、")).collect(Collectors.toList());
-                Log.w("DEBUG_DATA", "principle = " + pri2);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
-        TextView textView = findViewById(R.id.code);
-        TextView textView2 =(TextView)findViewById(R.id.textView10);
+        TextView textView = findViewById(R.id.textView10);
         TextView textView3 =(TextView)findViewById(R.id.textView11);
 
 
@@ -193,9 +171,7 @@ public class barcode extends AppCompatActivity {
 
             } else {
                 rebarcode = result.getContents().toString();
-                Toast.makeText(this, "Scanned: " + rebarcode, Toast.LENGTH_LONG).show();
                 //読み取った値がresult.getContents()になる
-                textView.setText(result.getContents());
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -206,64 +182,47 @@ public class barcode extends AppCompatActivity {
         ref.orderByChild("JANコード").equalTo(rebarcode).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {
-                if(dataSnapshot != null) {
-                    jan = (String) dataSnapshot.child("JANコード").getValue();
-                    cop = (String) dataSnapshot.child("会社名").getValue();
-                    product = (String) dataSnapshot.child("商品名").getValue();
-                    material = (String) dataSnapshot.child("原材料").getValue();
-                    allergy = (String) dataSnapshot.child("アレルギー").getValue();
+                jan = (String) dataSnapshot.child("JANコード").getValue();
+                cop = (String) dataSnapshot.child("会社名").getValue();
+                product = (String) dataSnapshot.child("商品名").getValue();
+                material = (String) dataSnapshot.child("原材料").getValue();
+                allergy = (String) dataSnapshot.child("アレルギー").getValue();
 
-                    Log.w("DEBUG_DATA", "JANコード = " + jan);
-                    Log.w("DEBUG_DATA", "会社名 = " + cop);
-                    Log.w("DEBUG_DATA", "商品名 = " + product);
-                    Log.w("DEBUG_DATA", "原材料 = " + material);
-                    Log.w("DEBUG_DATA", "アレルギー = " + allergy);
+                Log.w("DEBUG_DATA", "JANコード = " + jan);
+                Log.w("DEBUG_DATA", "会社名 = " + cop);
+                Log.w("DEBUG_DATA", "商品名 = " + product);
+                Log.w("DEBUG_DATA", "原材料 = " + material);
+                Log.w("DEBUG_DATA", "アレルギー = " + allergy);
+
+                if(dataSnapshot == null){
+                    Log.d("bar","ない");
+                }
+
+                if(CollectionUtils.isEmpty(taboolist) && CollectionUtils.isEmpty(uculist)){
+                    textView.setText("食べられます");
                 }else{
-                    //OCRに飛ぶような処理
-                }
-
-                if(CollectionUtils.isEmpty(tab_li)){
-                    textView2.setText("食べられます");
-                }else {
                     String cheack;
-                    if (ucu.isEmpty()) {
-                    } else {
-                        for (int j = 0; j < ucu_li.size(); j++) {
-                            cheack = ucu_li.get(j);
-                            tab_li.add(cheack);
+                    if(ucu.isEmpty()){ }else{
+                        for(int j =0; j<uculist.size();j++){
+                            cheack =uculist.get(j);
+                            taboolist.add(cheack);
                         }
                     }
-
-                    for (int j = 0; j < rel_li.size(); j++) {
-                        cheack = rel_li.get(j);
-                        tab_li.add(cheack);
+                    for(int j =0; j<rellist.size();j++){
+                        cheack =rellist.get(j);
+                        taboolist.add(cheack);
                     }
-                    for (int i = 0; i < tab_li.size(); i++) {
-                        cheack = tab_li.get(i);
-                        Log.d("a", cheack);
-                        if (cheack.matches(cheack)) {
-                            textView2.setText("食べられません");
+                    for (int i = 0; i < taboolist.size(); i++) {
+                        cheack = taboolist.get(i);
+                        Log.d("a",cheack);
+                        if(material.matches(cheack)){
+                            textView.setText("食べられません");
                             break;
-                        } else {
-                            textView2.setText("食べられます");
+                        }else{
+                            textView.setText("食べられます");
                         }
                     }
                 }
-
-                if(CollectionUtils.isEmpty(all_li)) {
-                    textView3.setText("ないです");
-                }else {
-                    for (int i = 0; i < all_li.size(); i++) {
-                        String cheack2 = all_li.get(i);
-                        if (cheack2.matches(cheack2)) {
-                            textView3.setText("ないです");
-                            break;
-                        } else {
-                            textView3.setText("あります");
-                        }
-                    }
-                }
-
 
             }
             @Override

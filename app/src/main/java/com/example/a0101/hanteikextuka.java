@@ -11,7 +11,7 @@ public class hanteikextuka extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_hanteikextuka);
+            setContentView(R.layout.activity_barcode);
             ImageButton btn1 = (ImageButton) findViewById(R.id.imageButton1);
             ImageButton btn2 = (ImageButton) findViewById(R.id.imageButton3);
             ImageButton btn3 = (ImageButton) findViewById(R.id.imageButton2);
