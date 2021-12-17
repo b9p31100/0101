@@ -161,12 +161,12 @@ public class barcode extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
-        TextView textView = findViewById(R.id.textView10);
-        TextView textView2 =findViewById(R.id.textView11);
-        TextView textView3 =findViewById(R.id.textView12);
-        TextView textView4 =findViewById(R.id.textView13);
-        TextView textView5 =findViewById(R.id.textView14);
-        TextView textView6 =findViewById(R.id.textView15);
+        TextView textView = findViewById(R.id.textView2);
+        TextView textView2 =findViewById(R.id.textView6);
+        TextView textView3 =findViewById(R.id.textView3);
+        TextView textView4 =findViewById(R.id.textView4);
+        TextView textView5 =findViewById(R.id.textView10);
+        TextView textView6 =findViewById(R.id.textView7);
 
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
