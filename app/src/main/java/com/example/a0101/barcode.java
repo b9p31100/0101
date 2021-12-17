@@ -2,6 +2,7 @@ package com.example.a0101;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,10 +29,11 @@ import java.util.stream.Stream;
 
 public class barcode extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private ArrayList<String> rellist,uculist,allergylist,taboolist;
+    private ArrayList<String> rellist,uculist,allergylist,taboolist,proallergy;
     private String rebarcode;
     private String jan, cop, product, material, allergy;
     private String pri, rel, all, ucu;
+    private boolean flg = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,7 @@ public class barcode extends AppCompatActivity {
         taboolist =new ArrayList<>();
         uculist =new ArrayList<>();
         rellist =new ArrayList<>();
+        proallergy = new ArrayList<>();
 
 
         final FirebaseDatabase database2 = FirebaseDatabase.getInstance();
@@ -77,8 +80,7 @@ public class barcode extends AppCompatActivity {
                 all = (String) dataSnapshot2.child("allergy").getValue();
                 ucu = (String) dataSnapshot2.child("ucustom").getValue();
 
-                all =all.replaceAll("-","");
-                if(all.isEmpty()){ }else{
+                if(all.equals("なし")){ }else{
                     allergylist = (ArrayList<String>) Stream.of(all.split("、")).collect(Collectors.toList());
                 }
                 if(ucu.isEmpty()){ }else{
@@ -155,13 +157,16 @@ public class barcode extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
 
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,Intent data) {
         TextView textView = findViewById(R.id.textView10);
-        TextView textView3 =(TextView)findViewById(R.id.textView11);
+        TextView textView2 =findViewById(R.id.textView11);
+        TextView textView3 =findViewById(R.id.textView12);
+        TextView textView4 =findViewById(R.id.textView13);
+        TextView textView5 =findViewById(R.id.textView14);
+        TextView textView6 =findViewById(R.id.textView15);
 
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -182,44 +187,83 @@ public class barcode extends AppCompatActivity {
         ref.orderByChild("JANコード").equalTo(rebarcode).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {
-                jan = (String) dataSnapshot.child("JANコード").getValue();
-                cop = (String) dataSnapshot.child("会社名").getValue();
-                product = (String) dataSnapshot.child("商品名").getValue();
-                material = (String) dataSnapshot.child("原材料").getValue();
-                allergy = (String) dataSnapshot.child("アレルギー").getValue();
-
-                Log.w("DEBUG_DATA", "JANコード = " + jan);
-                Log.w("DEBUG_DATA", "会社名 = " + cop);
-                Log.w("DEBUG_DATA", "商品名 = " + product);
-                Log.w("DEBUG_DATA", "原材料 = " + material);
-                Log.w("DEBUG_DATA", "アレルギー = " + allergy);
-
-                if(dataSnapshot == null){
-                    Log.d("bar","ない");
+                if(dataSnapshot!=null) {
+                    jan = (String) dataSnapshot.child("JANコード").getValue();
+                    cop = (String) dataSnapshot.child("会社名").getValue();
+                    product = (String) dataSnapshot.child("商品名").getValue();
+                    material = (String) dataSnapshot.child("原材料").getValue();
+                    allergy = (String) dataSnapshot.child("アレルギー").getValue();
+                    allergy =allergy.replaceAll("-","");
+                    if(allergy.isEmpty()){}else{
+                        proallergy =(ArrayList<String>) Stream.of(allergy.split("、")).collect(Collectors.toList());
+                    }
                 }
 
+                    Log.w("DEBUG_DATA", "JANコード = " + jan);
+                    Log.w("DEBUG_DATA", "会社名 = " + cop);
+                    Log.w("DEBUG_DATA", "商品名 = " + product);
+                    Log.w("DEBUG_DATA", "原材料 = " + material);
+                    Log.w("DEBUG_DATA", "アレルギー = " + allergy);
+
+                    textView3.setText("会社名"+cop);
+                    textView4.setText("商品名:"+product);
+                    textView5.setText("原材料:"+material);
+                    textView5.setMovementMethod(new ScrollingMovementMethod());
+                    textView6.setText("アレルギー物質"+allergy);
+
+
+                String cheack;
+                String cheack2;
+                String cheack3;
                 if(CollectionUtils.isEmpty(taboolist) && CollectionUtils.isEmpty(uculist)){
                     textView.setText("食べられます");
                 }else{
-                    String cheack;
-                    if(ucu.isEmpty()){ }else{
+                    if(CollectionUtils.isEmpty(uculist)){ }else{
                         for(int j =0; j<uculist.size();j++){
                             cheack =uculist.get(j);
                             taboolist.add(cheack);
                         }
                     }
-                    for(int j =0; j<rellist.size();j++){
-                        cheack =rellist.get(j);
-                        taboolist.add(cheack);
+                    if(CollectionUtils.isEmpty(rellist)) {}else{
+                        for (int j = 0; j < rellist.size(); j++) {
+                            cheack = rellist.get(j);
+                            taboolist.add(cheack);
+                        }
                     }
-                    for (int i = 0; i < taboolist.size(); i++) {
-                        cheack = taboolist.get(i);
-                        Log.d("a",cheack);
-                        if(material.matches(cheack)){
-                            textView.setText("食べられません");
-                            break;
-                        }else{
-                            textView.setText("食べられます");
+                    if(CollectionUtils.isEmpty(taboolist)) {}else{
+                        for (int i = 0; i < taboolist.size(); i++) {
+                            cheack = taboolist.get(i);
+                            Log.d("a", cheack);
+
+                            if ( material.matches(cheack)) {
+                                textView.setText("食べられません");
+
+                                break;
+                            } else {
+                                textView.setText("食べられます");
+                            }
+                        }
+                    }
+                }
+                if(CollectionUtils.isEmpty(allergylist)||CollectionUtils.isEmpty(proallergy)) {
+                    textView2.setText("含まれていません");
+                }else {
+                    for (int a = 0; a < proallergy.size(); a++) {
+                        cheack2 =proallergy.get(a);
+                        for (int b = 0; b < allergylist.size(); b++) {
+                            cheack3 = allergylist.get(b);
+                            if(flg){
+                                break;
+                            }
+                            if (cheack2.matches(cheack3)) {
+                                textView2.setText("含まれています");
+                                Log.d("a", "はい");
+                                flg =true;
+                                break;
+                            } else {
+                                textView2.setText("含まれていません");
+                                Log.d("a", "ここ");
+                            }
                         }
                     }
                 }
@@ -235,7 +279,8 @@ public class barcode extends AppCompatActivity {
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String prevChildKey) {}
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {}
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
         });
     }
 }

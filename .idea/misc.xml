@@ -38,8 +38,18 @@
         <entry key="..\:/Users/chisato/AndroidStudioProjects/0101/app/src/main/res/layout/activity_setting.xml" value="0.1796875" />
         <entry key="..\:/Users/chisato/AndroidStudioProjects/0101/app/src/main/res/layout/activity_signin.xml" value="0.1796875" />
         <entry key="..\:/Users/chisato/AndroidStudioProjects/0101/app/src/main/res/layout/ocrhantei.xml" value="0.1" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_barcode.xml" value="0.26403985507246375" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_barcode.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_hanteikextuka.xml" value="0.26403985507246375" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_hanteiocr.xml" value="0.21965579710144928" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_home.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_login.xml" value="0.21965579710144928" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_main.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_post.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_profiletregister.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_qcrkeka.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_register.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/activity_setting.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/0101/app/src/main/res/layout/ocrhantei.xml" value="0.21965579710144928" />
       </map>
     </option>
   </component>

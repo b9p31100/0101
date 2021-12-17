@@ -3,6 +3,7 @@ package com.example.a0101;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -52,6 +53,9 @@ public class hanteiocr extends AppCompatActivity {
         rellist =new ArrayList<>();
         uculist =new ArrayList<>();
 
+        Button btn =(Button)findViewById(R.id.button5);
+        Button btn2 =(Button)findViewById(R.id.button6);
+
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         imageButton.setOnClickListener(v ->{
             String reture =resul;
@@ -59,6 +63,12 @@ public class hanteiocr extends AppCompatActivity {
             intentre.putExtra("rest",reture);
             setResult(RESULT_OK, intentre);
             finish();
+        });
+        btn.setOnClickListener(v ->{
+            startActivity(new Intent(hanteiocr.this,post.class));
+        });
+        btn2.setOnClickListener(v ->{
+            startActivity(new Intent(hanteiocr.this,home.class));
         });
 
         database = FirebaseDatabase.getInstance();
@@ -74,7 +84,7 @@ public class hanteiocr extends AppCompatActivity {
                  String ucu = (String) datasnapshot.child("ucustom").getValue();
 
                 all =all.replaceAll(",","、");
-                if(all.isEmpty()){
+                if(all.equals("なし")){
                 }else{
                     allergylist = (ArrayList<String>) Stream.of(all.split("、")).collect(Collectors.toList());
                 }
@@ -93,7 +103,7 @@ public class hanteiocr extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         String rel2 = "";
-                        if (pri.isEmpty()){ }else if(pri.equals("ビーガン")){
+                        if (pri.equals("なし")){ }else if(pri.equals("ビーガン")){
                             rel2 = (String) snapshot.child("ビーガン").getValue();
                         }else{
                             rel2 = (String) snapshot.child("ベジタリアン").getValue();
@@ -114,7 +124,7 @@ public class hanteiocr extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String pri2 = "";
-                        if(rel.isEmpty()){
+                        if(rel.equals("なし")){
                         }else if(rel.equals("イスラム教")){
                             pri2 =(String)snapshot.child("イスラム教").getValue();
                         }else if(rel.equals("カトリック")){

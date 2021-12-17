@@ -53,6 +53,9 @@ public class profiletregister extends AppCompatActivity {
                 Log.w("DEBUG_DATA", "allergy = " + all);
                 Log.w("DEBUG_DATA", "ucustom = " + ucu);
 
+                if(ucu.isEmpty()){
+                    ucu ="なし";
+                }
                 textView.setText(pri);
                 textView2.setText(rel);
                 textView3.setText(all);
