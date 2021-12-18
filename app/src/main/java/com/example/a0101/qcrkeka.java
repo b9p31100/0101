@@ -23,7 +23,7 @@ public class qcrkeka extends AppCompatActivity {
         setContentView(R.layout.activity_qcrkeka);
 
         EditText editText = (EditText)findViewById(R.id.Edittext);
-        Button button =(Button)findViewById(R.id.button);
+        Button button =(Button)findViewById(R.id.button1);
         ImageButton imageButton =(ImageButton)findViewById(R.id.imagebutton1);
         ImageButton btn8 = (ImageButton) findViewById(R.id.imageButton5);
         ImageButton btn9 =(ImageButton)findViewById(R.id.imageButton2);

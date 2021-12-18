@@ -6,7 +6,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -172,7 +171,7 @@ public class barcode extends AppCompatActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+               startActivity(new Intent(barcode.this,home.class));
 
             } else {
                 rebarcode = result.getContents().toString();
