@@ -108,9 +108,7 @@ public class post extends AppCompatActivity {
                                     JsonObject target = files.get("target").getAsJsonObject();
                                     int error = target.get("error").getAsInt();
                                     String ErrorText = errorText.error[error];
-                                    Log.i("lightbox", s);
-                                    Log.i("lightbox", result);
-                                    Log.i("lightbox", ErrorText);
+                                    Log.i("result", ErrorText);
                                     if(result.equals("ocrが実行されませんでした")){
                                         Toast.makeText(post.this,"読み取れませんでした。もう一度取り直してください。",Toast.LENGTH_SHORT).show();
                                     }else{
